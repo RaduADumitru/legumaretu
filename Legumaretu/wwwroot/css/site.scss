@@ -1,0 +1,88 @@
+﻿@use "Variables.scss";
+
+html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    font-family: 'Poppins', sans-serif;
+    background-color: Variables.$mainbg;
+    color: Variables.$textcol;
+}
+
+.mainHeader {
+    display: flex;
+    justify-content: center;
+    gap: 6vw;
+    padding: 0 2em 0 2em;
+    margin-top: 2em;
+    margin-bottom: 3em;
+
+    img {
+        width: 7em;
+        height: 7em;
+        border-radius: 80px;
+    }
+
+    nav {
+        align-self: center;
+
+        > ul {
+            display: flex;
+            justify-content: space-evenly;
+            width: 40vw;
+            height: 3em;
+            margin: 0;
+            padding: 0;
+            border-radius: 20px;
+            box-shadow: -19px 11px 15px 0px Variables.$color1, 11px -10px 15px 0px Variables.$color2;
+            transition: box-shadow Variables.$timing ease;
+
+            &:hover {
+                box-shadow: 19px 11px 15px 0px Variables.$color1, -11px -10px 15px 0px Variables.$color2;
+            }
+
+            li {
+                margin-top: 4px;
+                list-style: none;
+                font-weight: bolder;
+                font-size: 1.4em;
+
+                a {
+                    text-decoration: none;
+                    color: Variables.$textcol;
+                    transition: color Variables.$timing cubic-bezier(.67,.13,.36,1.46);
+
+                    &:hover {
+                        color: Variables.$color3;
+                    }
+                }
+            }
+        }
+    }
+
+    > a {
+        align-self: center;
+        width: 7vw;
+        height: 3em;
+        padding-top: 0.6em;
+        text-align: center;
+        border-radius: 20px;
+        box-shadow: 19px 11px 15px 0px Variables.$color1, -11px -10px 15px 0px Variables.$color2;
+        text-decoration: none;
+        color: Variables.$textcol;
+        transition: color Variables.$timing cubic-bezier(.67,.13,.36,1.46), box-shadow Variables.$timing ease;
+
+        &:hover {
+            box-shadow: 19px -11px 15px 0px Variables.$color1, -11px 10px 15px 0px Variables.$color2;
+            color: Variables.$color3;
+        }
+
+        * {
+            height: fit-content;
+        }
+    }
+}
