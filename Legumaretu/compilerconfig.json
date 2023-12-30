@@ -1,14 +1,14 @@
-[
+﻿[
   {
     "outputFile": "wwwroot/css/site.css",
-    "inputFile": "wwwroot/css/site.scss",
-    "sourceMap": false,
-    "useNodeSass": false
+    "inputFile": "wwwroot/css/site.scss"
   },
   {
     "outputFile": "wwwroot/css/LandingContent.css",
-    "inputFile": "wwwroot/css/LandingContent.scss",
-    "sourceMap": false,
-    "useNodeSass": false
+    "inputFile": "wwwroot/css/LandingContent.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/MainHeader.css",
+    "inputFile": "wwwroot/css/MainHeader.scss"
   }
 ]
