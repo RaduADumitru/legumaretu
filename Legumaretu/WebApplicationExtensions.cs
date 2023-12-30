@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Legumaretu.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace Legumaretu;
 
@@ -8,7 +9,7 @@ public static class WebApplicationExtensions
 	{
 		using var scope = app.Services.CreateScope();
 		var roleManager = (RoleManager<IdentityRole>)scope.ServiceProvider.GetService(typeof(RoleManager<IdentityRole>));
-		var userManager = (UserManager<IdentityUser>)scope.ServiceProvider.GetService(typeof(UserManager<IdentityUser>));
+		var userManager = (UserManager<ApplicationUser>)scope.ServiceProvider.GetService(typeof(UserManager<ApplicationUser>));
 		var roles = configuration.GetSection("Roles").Get<List<string>>();
 
 		foreach (var role in roles)
@@ -23,7 +24,7 @@ public static class WebApplicationExtensions
 		if (_user == null)
 		{
 			//Here you could create the super admin who will maintain the web app
-			var poweruser = new IdentityUser
+			var poweruser = new ApplicationUser
 			{
 				UserName = "admin@email.com",
 				Email = "admin@email.com",
