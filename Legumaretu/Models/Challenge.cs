@@ -17,6 +17,7 @@
 			ChTasks = chtasks;
 		}
 
+		public Challenge(){}
 		public int TotalPoints()
 		{
 			int s = 0;

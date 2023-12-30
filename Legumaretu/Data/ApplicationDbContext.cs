@@ -9,5 +9,9 @@ namespace Legumaretu.Data
 			: base(options)
 		{
 		}
+
+		public DbSet<Legumaretu.Models.Challenge> Challenge { get; set; }
+		public DbSet<Legumaretu.Models.Recipe> Recipe { get; set; }
+		public DbSet<Legumaretu.Models.ChTask> ChTask { get; set; }
 	}
 }

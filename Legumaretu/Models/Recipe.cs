@@ -8,6 +8,7 @@
         public int Stars { get; set; }
         public bool Official { get; set; }
         public string ImgLink { get; set; }
+        public List<ChTask> ChTasks { get; set; }
 
         public Recipe(int id, string name, string description, int stars, bool official, string imglink)
         {
@@ -18,5 +19,6 @@
             Official = official;
             ImgLink = imglink;
         }
+        public Recipe() { }
     }
 }
