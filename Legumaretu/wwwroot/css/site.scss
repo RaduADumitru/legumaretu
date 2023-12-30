@@ -1,0 +1,14 @@
+﻿@use "Variables.scss";
+
+html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    font-family: 'Poppins', sans-serif;
+    background-color: Variables.$mainbg;
+    color: Variables.$textcol;
+}

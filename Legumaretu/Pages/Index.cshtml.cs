@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Legumaretu.Data;
+using Legumaretu.Models;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Legumaretu.Pages
@@ -12,9 +13,11 @@ namespace Legumaretu.Pages
 			_logger = logger;
 		}
 
-		public void OnGet()
-		{
+		public List<Recipe> recipes = DummyData.TestRecipes;
 
+        public void OnGet()
+		{
+			
 		}
 	}
 }
