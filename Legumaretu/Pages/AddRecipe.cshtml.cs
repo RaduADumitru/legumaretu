@@ -1,11 +1,13 @@
 using Legumaretu.Data;
 using Legumaretu.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Legumaretu.Pages
 {
+    [Authorize(Roles = "Default,Moderator,Admin")]
     public class AddRecipeModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
