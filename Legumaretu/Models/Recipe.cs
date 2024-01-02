@@ -4,10 +4,10 @@
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Description { get; set; }
+        public string? Description { get; set; }
         public int Stars { get; set; }
         public bool Official { get; set; }
-        public string ImgLink { get; set; }
+        public string? ImgLink { get; set; }
         public List<ChTask> ChTasks { get; set; }
         public ApplicationUser User { get; set; }
 
