@@ -6,6 +6,7 @@
 		public string Name { get; set; }
 		public string? Description { get; set; }
 		public bool Official {  get; set; }
+		//TODO: replace chtasks with recipes
 		public List<ChTask> ChTasks { get; set; }
 		public ApplicationUser User { get; set; }
 

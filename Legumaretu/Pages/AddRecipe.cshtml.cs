@@ -27,12 +27,13 @@ namespace Legumaretu.Pages
 
         public IActionResult OnPost()
         {
-            // if (!ModelState.IsValid)
-            // {
-            // 	return Page();
-            // }
+            if (!ModelState.IsValid)
+            {
+            	return Page();
+            }
             ApplicationUser user = _userManager.GetUserAsync(User).Result;
-            if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
+            Recipe.User = user;
+			if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
             {
                 Recipe.Official = true;
             }
@@ -40,8 +41,7 @@ namespace Legumaretu.Pages
             {
 	            Recipe.Official = false;
             }
-            Recipe.User = user;
-            _applicationDbContext.Recipes.Add(Recipe);
+			_applicationDbContext.Recipes.Add(Recipe);
             _applicationDbContext.SaveChanges();
             return RedirectToPage("/Index");
         }
