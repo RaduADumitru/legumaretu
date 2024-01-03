@@ -12,5 +12,14 @@
 			Recipe = recipe;
 			Done = false;
 		}
+
+		public ChTask(int id, Recipe recipe, bool done)
+		{
+			Id = id;
+			Recipe = recipe;
+			Done = done;
+		}
+
+		public ChTask() { }
 	}
 }

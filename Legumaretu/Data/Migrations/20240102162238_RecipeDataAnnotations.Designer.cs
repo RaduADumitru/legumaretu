@@ -4,6 +4,7 @@ using Legumaretu.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Legumaretu.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240102162238_RecipeDataAnnotations")]
+    partial class RecipeDataAnnotations
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -115,29 +117,6 @@ namespace Legumaretu.Data.Migrations
                     b.ToTable("Challenges");
                 });
 
-            modelBuilder.Entity("Legumaretu.Models.ChallengeProgress", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<int>("ChallengeId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ChallengeId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("ChallengeProgresses");
-                });
-
             modelBuilder.Entity("Legumaretu.Models.ChTask", b =>
                 {
                     b.Property<int>("Id")
@@ -149,9 +128,6 @@ namespace Legumaretu.Data.Migrations
                     b.Property<int?>("ChallengeId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("ChallengeProgressId")
-                        .HasColumnType("int");
-
                     b.Property<bool>("Done")
                         .HasColumnType("bit");
 
@@ -161,8 +137,6 @@ namespace Legumaretu.Data.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("ChallengeId");
-
-                    b.HasIndex("ChallengeProgressId");
 
                     b.HasIndex("RecipeId");
 
@@ -350,32 +324,11 @@ namespace Legumaretu.Data.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Legumaretu.Models.ChallengeProgress", b =>
-                {
-                    b.HasOne("Legumaretu.Models.Challenge", "Challenge")
-                        .WithMany()
-                        .HasForeignKey("ChallengeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Legumaretu.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId");
-
-                    b.Navigation("Challenge");
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("Legumaretu.Models.ChTask", b =>
                 {
                     b.HasOne("Legumaretu.Models.Challenge", null)
                         .WithMany("ChTasks")
                         .HasForeignKey("ChallengeId");
-
-                    b.HasOne("Legumaretu.Models.ChallengeProgress", null)
-                        .WithMany("ChTasks")
-                        .HasForeignKey("ChallengeProgressId");
 
                     b.HasOne("Legumaretu.Models.Recipe", "Recipe")
                         .WithMany("ChTasks")
@@ -454,11 +407,6 @@ namespace Legumaretu.Data.Migrations
                 });
 
             modelBuilder.Entity("Legumaretu.Models.Challenge", b =>
-                {
-                    b.Navigation("ChTasks");
-                });
-
-            modelBuilder.Entity("Legumaretu.Models.ChallengeProgress", b =>
                 {
                     b.Navigation("ChTasks");
                 });

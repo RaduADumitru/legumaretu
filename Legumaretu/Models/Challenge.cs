@@ -4,9 +4,11 @@
 	{
 		public int Id {  get; set; }
 		public string Name { get; set; }
-		public string Description { get; set; }
+		public string? Description { get; set; }
 		public bool Official {  get; set; }
+		//TODO: replace chtasks with recipes
 		public List<ChTask> ChTasks { get; set; }
+		public ApplicationUser User { get; set; }
 
 		public Challenge(int id, string name, string description, bool official, List<ChTask> chtasks)
 		{
@@ -17,6 +19,7 @@
 			ChTasks = chtasks;
 		}
 
+		public Challenge(){}
 		public int TotalPoints()
 		{
 			int s = 0;
