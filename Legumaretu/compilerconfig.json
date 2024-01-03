@@ -10,5 +10,9 @@
   {
     "outputFile": "wwwroot/css/MainHeader.css",
     "inputFile": "wwwroot/css/MainHeader.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/Recipe.css",
+    "inputFile": "wwwroot/css/Recipe.scss"
   }
 ]

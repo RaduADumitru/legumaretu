@@ -8,7 +8,8 @@
     @foreach(var recipe in Model.recipes)
     {
         <article>
-            <h2>@recipe.Name
+            <h2>
+                <a asp-page="/Recipe" asp-route-recipeId="@recipe.Id">@recipe.Name</a>
                 @if(recipe.Official)
                 {
                     <span class="fa-solid fa-circle-check" title="Rețetă adăugată de moderatori"></span>

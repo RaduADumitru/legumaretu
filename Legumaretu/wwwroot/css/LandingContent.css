@@ -3,6 +3,14 @@
   flex-direction: column;
   gap: 1em;
 }
+.contentList > article a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46);
+}
+.contentList > article a:hover {
+  color: #E84855;
+}
 
 .recipeContent {
   display: flex;
