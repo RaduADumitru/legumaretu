@@ -1,0 +1,44 @@
+﻿@use "Variables.scss";
+
+.recipe {
+    display: flex;
+    flex-direction: column;
+
+    img {
+        width: 50%;
+        border-radius: 20px;
+        align-self: center;
+        animation: recipeImage 5s ease infinite;
+    }
+
+    h2 {
+        margin-top: 1.5em;
+    }
+
+    div {
+        display: flex;
+        gap: 1em;
+
+        > * {
+            border: 1px solid Variables.$secbg;
+            border-radius: 20px;
+            padding: 0.5em;
+        }
+
+        i {
+            color: gold;
+        }
+    }
+}
+
+@keyframes recipeImage {
+    0% {
+        box-shadow: 9px 14px 5px 0px Variables.$color1, -14px 3px 5px 0px Variables.$color2, -10px -13px 5px 0px Variables.$color3;
+    }
+    50% {
+        box-shadow: 19px 24px 5px 0px Variables.$color4, -24px 13px 5px 0px Variables.$color5, -20px -23px 5px 0px Variables.$color2;
+    }
+    100% {
+        box-shadow: 9px 14px 5px 0px Variables.$color1, -14px 3px 5px 0px Variables.$color2, -10px -13px 5px 0px Variables.$color3;
+    }
+}

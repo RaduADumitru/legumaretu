@@ -1,0 +1,67 @@
+﻿@use 'Variables.scss';
+
+.contentList > article {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+    a {
+        text-decoration: none;
+        color: Variables.$textcol;
+        transition: color Variables.$timing cubic-bezier(.67,.13,.36,1.46);
+
+        &:hover {
+            color: Variables.$color3;
+        }
+    }
+}
+
+.recipeContent {
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+
+    img {
+        width: 50%;
+        height: 35em;
+        border-radius: 20px;
+        box-shadow: -13px 12px 5px 0px Variables.$color3;
+        transition: box-shadow Variables.$timing ease;
+
+        &:hover {
+            box-shadow: -23px 22px 5px 0px Variables.$color3;
+        }
+    }
+
+    p {
+        width: 50%;
+        height: 35em;
+        padding: 2em;
+        border: 1px solid Variables.$secbg;
+        border-radius: 20px;
+        box-shadow: 13px -12px 5px 0px Variables.$color4;
+        transition: box-shadow Variables.$timing ease;
+
+        &:hover {
+            box-shadow: 23px -22px 5px 0px Variables.$color4;
+        }
+
+        overflow: scroll;
+    }
+}
+
+.recipeStats {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1em;
+
+    > * {
+        border: 1px solid Variables.$secbg;
+        border-radius: 20px;
+        padding: 0.5em;
+    }
+
+    i {
+        color: gold;
+    }
+}
