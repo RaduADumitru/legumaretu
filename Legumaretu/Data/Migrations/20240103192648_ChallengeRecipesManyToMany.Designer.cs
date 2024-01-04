@@ -4,6 +4,7 @@ using Legumaretu.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Legumaretu.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240103192648_ChallengeRecipesManyToMany")]
+    partial class ChallengeRecipesManyToMany
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -115,8 +117,7 @@ namespace Legumaretu.Data.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Official")
                         .HasColumnType("bit");
@@ -385,7 +386,7 @@ namespace Legumaretu.Data.Migrations
                         .IsRequired();
 
                     b.HasOne("Legumaretu.Models.ApplicationUser", "User")
-                        .WithMany("ChallengeProgresses")
+                        .WithMany()
                         .HasForeignKey("UserId");
 
                     b.Navigation("Challenge");
@@ -474,8 +475,6 @@ namespace Legumaretu.Data.Migrations
 
             modelBuilder.Entity("Legumaretu.Models.ApplicationUser", b =>
                 {
-                    b.Navigation("ChallengeProgresses");
-
                     b.Navigation("Challenges");
 
                     b.Navigation("Recipes");

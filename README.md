@@ -1,8 +1,6 @@
 # legumaretu
 ## Setup
-Run the following commands in the Package Manager Console (PMC):
-
-`Add-Migration`
+Run the following command in the Package Manager Console (PMC):
 
 `Update-Database`
 

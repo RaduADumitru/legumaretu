@@ -1,0 +1,57 @@
+﻿@page
+@model Legumaretu.Pages.CreateChallengeModel
+
+@{
+    ViewData["Title"] = "AddChallenge";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>CreateChallenge</h1>
+
+<h4>Challenge</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Challenge.Name" class="control-label"></label>
+                <input asp-for="Challenge.Name" class="form-control" />
+                <span asp-validation-for="Challenge.Name" class="text-danger"></span>
+            </div>
+	        <div class="form-group">
+		        <label asp-for="Challenge.Description" class="control-label"></label>
+		        <input asp-for="Challenge.Description" class="form-control" />
+		        <span asp-validation-for="Challenge.Description" class="text-danger"></span>
+	        </div>
+	        <div class="form-group">
+		        <label class="control-label">Recipes</label>
+		        @* <input asp-for="Challenge.Description" class="form-control" /> *@
+		        <select multiple asp-for="@Model.SelectedRecipeIds" asp-items="@Model.Recipes"></select><br />
+		        <span asp-validation-for="SelectedRecipeIds" class="text-danger"></span>
+	        </div>
+	        @* <div> *@
+		       @*  <label>Select Recipes:</label> *@
+		       @*  @foreach (var recipe in Model.Recipes) *@
+		       @*  { *@
+			      @*   <div> *@
+				     @*    <input type="checkbox" asp-for="SelectedRecipeIds" value="@recipe.Id" /> *@
+				     @*    <label>@recipe.Name</label> *@
+			      @*   </div> *@
+		       @*  } *@
+		       @*  <span asp-validation-for="SelectedRecipeIds" class="text-danger"></span> *@
+	        @* </div> *@
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

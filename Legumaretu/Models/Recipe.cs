@@ -15,6 +15,7 @@ namespace Legumaretu.Models
         public string? ImgLink { get; set; }
         public List<ChTask>? ChTasks { get; set; }
         public ApplicationUser? User { get; set; }
+        public List<Challenge>? Challenges { get; set; }
 
         public Recipe(int id, string name, string description, int stars, bool official, string imglink)
         {
