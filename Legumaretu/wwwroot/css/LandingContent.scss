@@ -1,19 +1,26 @@
 ﻿@use 'Variables.scss';
 
-.contentList > article {
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
+.contentList {
+    margin-left: 15vw;
+    margin-right: 15vw;
 
-    a {
-        text-decoration: none;
-        color: Variables.$textcol;
-        transition: color Variables.$timing cubic-bezier(.67,.13,.36,1.46);
+    > article {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
 
-        &:hover {
-            color: Variables.$color3;
+        a {
+            text-decoration: none;
+            color: Variables.$textcol;
+            transition: color Variables.$timing cubic-bezier(.67,.13,.36,1.46);
+
+            &:hover {
+                color: Variables.$color3;
+            }
         }
     }
+
+    margin-bottom: 2em;
 }
 
 .recipeContent {
@@ -25,11 +32,11 @@
         width: 50%;
         height: 35em;
         border-radius: 20px;
-        box-shadow: -13px 12px 5px 0px Variables.$color3;
+        box-shadow: -13px 12px 15px 0px Variables.$color3;
         transition: box-shadow Variables.$timing ease;
 
         &:hover {
-            box-shadow: -23px 22px 5px 0px Variables.$color3;
+            box-shadow: -23px 22px 15px 0px Variables.$color3;
         }
     }
 
@@ -39,11 +46,11 @@
         padding: 2em;
         border: 1px solid Variables.$secbg;
         border-radius: 20px;
-        box-shadow: 13px -12px 5px 0px Variables.$color4;
+        box-shadow: 13px -12px 15px 0px Variables.$color4;
         transition: box-shadow Variables.$timing ease;
 
         &:hover {
-            box-shadow: 23px -22px 5px 0px Variables.$color4;
+            box-shadow: 23px -22px 15px 0px Variables.$color4;
         }
 
         overflow: scroll;
@@ -63,5 +70,24 @@
 
     i {
         color: gold;
+    }
+}
+
+#addrecipe {
+    position: fixed;
+    left: 90%;
+    top: 87%;
+    transform: translate(-20%, 0%);
+    padding: 1em;
+    border-radius: 20px;
+    text-decoration: none;
+    color: Variables.$textcol;
+    text-align: center;
+    box-shadow: 8px 8px 15px -5px Variables.$color2;
+    transition: color Variables.$timing cubic-bezier(.67,.13,.36,1.46), box-shadow Variables.$timing ease;
+
+    &:hover {
+        box-shadow: 12px 12px 15px -5px Variables.$color2;
+        color: Variables.$color3;
     }
 }

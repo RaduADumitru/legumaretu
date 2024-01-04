@@ -4,6 +4,10 @@
   min-height: 100%;
 }
 
+main {
+  height: 75vh;
+}
+
 body {
   margin-bottom: 60px;
   font-family: "Poppins", sans-serif;

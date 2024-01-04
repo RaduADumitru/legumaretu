@@ -14,5 +14,9 @@
   {
     "outputFile": "wwwroot/css/Recipe.css",
     "inputFile": "wwwroot/css/Recipe.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/AddRecipe.css",
+    "inputFile": "wwwroot/css/AddRecipe.scss"
   }
 ]

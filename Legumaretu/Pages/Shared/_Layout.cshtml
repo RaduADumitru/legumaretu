@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/LandingContent.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/Recipe.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/AddRecipe.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/MainHeader.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Legumaretu.styles.css" asp-append-version="true" />
 
@@ -25,11 +26,9 @@
         <img src="assets/logo2.png" />
         <partial name="_MenuPartial" />
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+    <main role="main">
+        @RenderBody()
+    </main>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
