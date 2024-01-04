@@ -9,7 +9,7 @@ namespace Legumaretu.Data
 
 		public static List<Recipe> TestRecipes { get; set; } = new()
 		{
-			new Recipe(1, "Recipe1", LoremIpsum, 3, false, "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg"),
+			new Recipe(1, "Recipe1", LoremIpsum, 3, false, "/content/images/recipes/1280px-Sunflower_from_Silesia2.jpg"),
 			new Recipe(2, "Recipe2", LoremIpsum, 1, true, "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg"),
 			new Recipe(3, "Recipe3", LoremIpsum, 4, true, "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg"),
 			new Recipe(4, "Recipe4", LoremIpsum, 5, true, "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg")

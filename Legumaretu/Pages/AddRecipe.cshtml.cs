@@ -4,13 +4,17 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Net.Http.Headers;
 
 namespace Legumaretu.Pages
 {
     [Authorize(Roles = "Default,Moderator,Admin")]
     public class AddRecipeModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
+        [BindProperty]
+        public IFormFile? Image { get; set; }
+        private readonly string webRoot = "wwwroot";
+		private readonly ILogger<IndexModel> _logger;
         private readonly ApplicationDbContext _applicationDbContext;
         private readonly UserManager<ApplicationUser> _userManager;
         [BindProperty] public Recipe Recipe { get; set; }
@@ -41,6 +45,18 @@ namespace Legumaretu.Pages
             {
 	            Recipe.Official = false;
             }
+
+			if (Image != null && Image.Length > 0)
+			{
+				// Upload image to wwwroot/content/images/recipes
+				var fileName = Guid.NewGuid().ToString();
+				var filePath = Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot\content\images\recipes", fileName);
+				using (var fileStream = new FileStream(filePath, FileMode.Create))
+				{
+					Image.CopyTo(fileStream);
+				}
+                Recipe.ImgLink = @"\content\images\recipes\" + fileName;
+			}
 			_applicationDbContext.Recipes.Add(Recipe);
             _applicationDbContext.SaveChanges();
             return RedirectToPage("/Index");
