@@ -10,11 +10,11 @@
 		<input asp-for="Recipe.Name"/>
 		<span asp-validation-for="Recipe.Name" class="text-danger"></span>
 
-		<label>Description</label>
-		<input asp-for="Recipe.Description"/>
+		<label>Descriere</label>
+		<textarea asp-for="Recipe.Description"></textarea>
 		<span asp-validation-for="Recipe.Description" class="text-danger"></span>
 
-		<label>Difficulty (1-5)</label>
+		<label>Nivel de dificultate (1-5)</label>
 		<input type="number" min="1" max="5" value="1" asp-for="Recipe.Stars"/>
 		<span asp-validation-for="Recipe.Stars" class="text-danger"></span>
 

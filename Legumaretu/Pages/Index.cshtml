@@ -13,7 +13,7 @@
     <a id="addrecipe" asp-page="/AddRecipe"><i class="fa-solid fa-plus"></i> Adaugă rețetă</a>
 }
 
-<section class="contentList">
+<section class="recipeList">
     @if (Model.Recipes.Count() == 0)
     {
         <p class="text-center">Nu există nicio rețetă :(</p>
@@ -31,7 +31,7 @@
                 </h2>
                 <div class="recipeContent">
                     <img src="@recipe.ImgLink"/>
-                    <p>@recipe.Description</p>
+                    <pre>@recipe.Description</pre>
                 </div>
                 <div class="recipeStats">
                     <p>

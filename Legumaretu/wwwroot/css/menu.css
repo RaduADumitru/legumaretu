@@ -1,20 +1,21 @@
-﻿.mainHeader {
+﻿.menu {
   display: flex;
   justify-content: center;
   gap: 6vw;
   padding: 0 2em 0 2em;
-  margin-top: 2em;
-  margin-bottom: 3em;
+  margin: 2em 0 3em 0;
 }
-.mainHeader img {
+.menu img {
   width: 7em;
   height: 7em;
   border-radius: 80px;
 }
-.mainHeader nav {
+.menu nav {
   align-self: center;
+  font-weight: bolder;
+  font-size: 1.4em;
 }
-.mainHeader nav > ul {
+.menu nav > ul {
   display: flex;
   justify-content: space-evenly;
   width: 40vw;
@@ -22,42 +23,40 @@
   margin: 0;
   padding: 0;
   border-radius: 20px;
-  box-shadow: -19px 11px 15px 0px #403f4c, 11px -10px 15px 0px #F9DC5C;
+  box-shadow: -19px 11px 15px 0px #F58344, 11px -10px 15px 0px #F54545;
   transition: box-shadow 0.2s ease;
 }
-.mainHeader nav > ul:hover {
-  box-shadow: 19px 11px 15px 0px #403f4c, -11px -10px 15px 0px #F9DC5C;
+.menu nav > ul:hover {
+  box-shadow: 19px 11px 15px 0px #F58344, -11px -10px 15px 0px #F54545;
 }
-.mainHeader nav > ul li {
-  margin-top: 4px;
+.menu nav > ul li {
+  align-self: center;
   list-style: none;
-  font-weight: bolder;
-  font-size: 1.4em;
 }
-.mainHeader nav > ul li a {
+.menu nav > ul li a {
   text-decoration: none;
   color: white;
   transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46);
 }
-.mainHeader nav > ul li a:hover {
-  color: #E84855;
+.menu nav > ul li a:hover {
+  color: #F56345;
 }
-.mainHeader > a {
+.menu > a {
   align-self: center;
   width: 7vw;
   height: 3em;
   padding-top: 0.6em;
-  text-align: center;
   border-radius: 20px;
-  box-shadow: 19px 11px 15px 0px #403f4c, -11px -10px 15px 0px #F9DC5C;
+  text-align: center;
   text-decoration: none;
+  box-shadow: 19px 11px 20px 0px #F58344, -11px -10px 20px 0px #F54545;
   color: white;
   transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46), box-shadow 0.2s ease;
 }
-.mainHeader > a:hover {
-  box-shadow: 19px -11px 15px 0px #403f4c, -11px 10px 15px 0px #F9DC5C;
-  color: #E84855;
+.menu > a:hover {
+  box-shadow: 19px -11px 15px 0px #F58344, -11px 10px 15px 0px #F54545;
+  color: #F56345;
 }
-.mainHeader > a * {
+.menu > a * {
   height: fit-content;
 }

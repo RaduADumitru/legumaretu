@@ -1,0 +1,68 @@
+﻿@use "vars.scss";
+
+$menuh: 3em;
+
+.menu {
+    display: flex;
+    justify-content: center;
+    gap: 6vw;
+    padding: 0 2em 0 2em;
+    margin: 2em 0 3em 0;
+
+    img {
+        width: 7em;
+        height: 7em;
+        border-radius: 80px;
+    }
+
+    nav {
+        align-self: center;
+        font-weight: bolder;
+        font-size: 1.4em;
+
+        > ul {
+            display: flex;
+            justify-content: space-evenly;
+            width: 40vw;
+            height: $menuh;
+            margin: 0;
+            padding: 0;
+            border-radius: vars.$radius;
+            box-shadow: -19px 11px vars.$fuzz 0px vars.$color1, 11px -10px vars.$fuzz 0px vars.$color2;
+            transition: box-shadow vars.$timing ease;
+
+            &:hover {
+                box-shadow: 19px 11px vars.$fuzz 0px vars.$color1, -11px -10px vars.$fuzz 0px vars.$color2;
+            }
+
+            li {
+                align-self: center;
+                list-style: none;
+
+                @include vars.link;
+            }
+        }
+    }
+
+    > a {
+        align-self: center;
+        width: 7vw;
+        height: $menuh;
+        padding-top: 0.6em;
+        border-radius: vars.$radius;
+        text-align: center;
+        text-decoration: none;
+        box-shadow: 19px 11px vars.$radius 0px vars.$color1, -11px -10px vars.$radius 0px vars.$color2;
+        color: vars.$textcol;
+        transition: color vars.$timing cubic-bezier(.67,.13,.36,1.46), box-shadow vars.$timing ease;
+
+        &:hover {
+            box-shadow: 19px -11px 15px 0px vars.$color1, -11px 10px 15px 0px vars.$color2;
+            color: vars.$color3;
+        }
+
+        * {
+            height: fit-content;
+        }
+    }
+}

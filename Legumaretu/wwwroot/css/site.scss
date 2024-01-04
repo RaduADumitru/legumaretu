@@ -1,18 +1,21 @@
-﻿@use "Variables.scss";
+﻿@use "vars.scss";
+@use "menu.scss";
+@use "recipe.scss";
+@use "recipes.scss";
+@use "addRecipe.scss";
 
 html {
     font-size: 14px;
     position: relative;
     min-height: 100%;
-}
 
-main {
-    height: 75vh;
-}
+    body {
+        main {
+            height: 75vh;
+        }
 
-body {
-    margin-bottom: 60px;
-    font-family: 'Poppins', sans-serif;
-    background-color: Variables.$mainbg;
-    color: Variables.$textcol;
+        font-family: 'Poppins', sans-serif;
+        background-color: vars.$mainbg;
+        color: vars.$textcol;
+    }
 }

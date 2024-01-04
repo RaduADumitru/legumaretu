@@ -18,15 +18,15 @@
   text-align: center;
   color: white;
   border: 1px solid white;
-  border-radius: 20px;
+  border-radius: 15px;
   transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46);
-  box-shadow: 8px 8px 15px -5px #F9DC5C;
+  box-shadow: 8px 8px 15px -5px #F54545;
   transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46), box-shadow 0.2s ease;
 }
 .addrecipe form button:hover {
-  color: #E84855;
+  color: #F56345;
 }
 .addrecipe form button:hover {
-  box-shadow: 12px 12px 15px -5px #F9DC5C;
-  color: #E84855;
+  box-shadow: 12px 12px 15px -5px #F54545;
+  color: #F56345;
 }
