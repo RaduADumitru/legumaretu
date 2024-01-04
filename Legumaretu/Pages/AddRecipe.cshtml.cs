@@ -49,13 +49,15 @@ namespace Legumaretu.Pages
 			if (Image != null && Image.Length > 0)
 			{
 				// Upload image to wwwroot/content/images/recipes
-				var fileName = Guid.NewGuid().ToString();
+                //Get file extension
+                string fileExtension = Path.GetExtension(Image.FileName);
+				var fileName = Guid.NewGuid().ToString() + fileExtension;
 				var filePath = Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot\content\images\recipes", fileName);
 				using (var fileStream = new FileStream(filePath, FileMode.Create))
 				{
 					Image.CopyTo(fileStream);
 				}
-                Recipe.ImgLink = @"\content\images\recipes\" + fileName;
+                Recipe.ImgLink = "/content/images/recipes/" + fileName;
 			}
 			_applicationDbContext.Recipes.Add(Recipe);
             _applicationDbContext.SaveChanges();
