@@ -6,5 +6,5 @@ public class ChallengeProgress
 	public ApplicationUser? User { get; set; }
 	public int ChallengeId { get; set; }
 	public Challenge? Challenge { get; set; }
-	public List<ChTask>? ChTasks { get; set; }
+	public virtual List<ChTask>? ChTasks { get; set; }
 }
