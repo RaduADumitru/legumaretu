@@ -22,6 +22,12 @@
 			ChallengeProgress = challengeProgress;
 		}
 
+        public ChTask(Recipe recipe)
+        {
+            Recipe = recipe;
+            Done = false;
+        }
+
 		public ChTask() { }
 	}
 }

@@ -10,7 +10,7 @@ namespace Legumaretu.Models
         public string Name { get; set; }
 		public string? Description { get; set; }
 		public bool Official {  get; set; }
-		public List<Recipe>? Recipes { get; set; }
+		public virtual List<Recipe>? Recipes { get; set; }
 		public ApplicationUser? User { get; set; }
 
 		public Challenge(int id, string name, string description, bool official, List<Recipe> recipes)
