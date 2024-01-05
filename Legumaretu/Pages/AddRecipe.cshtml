@@ -13,8 +13,7 @@
 	<label>Difficulty (1-5)</label><br/>
 	<input type="number" min="1" max="5" value="1" asp-for="Recipe.Stars"/><br/>
 	<span asp-validation-for="Recipe.Stars" class="text-danger"></span><br />
-	@* TODO: Image Upload *@
-	<input type="file" asp-for="@Model.Image" />
+	<input type="file" accept="image/*" asp-for="@Model.Image" />
 	<span asp-validation-for="@Model.Image" class="text-danger"></span><br />
 	<button>Submit</button>
 </form>
