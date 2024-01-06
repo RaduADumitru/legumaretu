@@ -6,5 +6,6 @@ namespace Legumaretu.Models
 	{
 		public List<Challenge> Challenges { get; set; }
 		public List<Recipe> Recipes { get; set; }
+		public List<ChallengeProgress> ChallengeProgresses { get; set; }
 	}
 }

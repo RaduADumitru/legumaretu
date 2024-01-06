@@ -9,7 +9,7 @@ namespace Legumaretu.Data
 
 		public static List<Recipe> TestRecipes { get; set; } = new()
 		{
-			new Recipe(1, "Recipe1", LoremIpsum, 3, true, "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg"),
+			new Recipe(1, "Recipe1", LoremIpsum, 3, false, "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg"),
 			new Recipe(2, "Recipe2", LoremIpsum, 1, true, "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg"),
 			new Recipe(3, "Recipe3", LoremIpsum, 4, true, "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg"),
 			new Recipe(4, "Recipe4", LoremIpsum, 5, true, "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg")
@@ -17,19 +17,19 @@ namespace Legumaretu.Data
 
 		public static List<Challenge> TestChallenges { get; set; } = new()
 		{
-			new Challenge(1, "Challenge1", LoremShort, true, new List<ChTask> ()
+			new Challenge(1, "Challenge1", LoremShort, true, new List<Recipe> ()
 			{
-				new(1, new Recipe(5, "Recipe5", LoremIpsum, 4, true, "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg")),
-				new(2, new Recipe(6, "Recipe6", LoremIpsum, 3, true, "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg")),
-				new(3, new Recipe(7, "Recipe7", LoremIpsum, 2, true, "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg")),
-				new(4, new Recipe(8, "Recipe8", LoremIpsum, 5, true, "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg"))
+				new Recipe(5, "Recipe5", LoremIpsum, 4, true, "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg"),
+				new Recipe(6, "Recipe6", LoremIpsum, 3, true, "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg"),
+				new Recipe(7, "Recipe7", LoremIpsum, 2, true, "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg"),
+				new Recipe(8, "Recipe8", LoremIpsum, 5, true, "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg")
 			}),
-			new Challenge(2, "Challenge2", LoremShort, true, new List<ChTask> ()
+			new Challenge(2, "Challenge2", LoremShort, true, new List<Recipe> ()
 			{
-				new(1, new Recipe(9, "Recipe9", LoremIpsum, 2, true, "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg")),
-				new(2, new Recipe(10, "Recipe10", LoremIpsum, 4, true, "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg")),
-				new(3, new Recipe(11, "Recipe11", LoremIpsum, 5, true, "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg")),
-				new(4, new Recipe(12, "Recipe12", LoremIpsum, 2, true, "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg"))
+				new Recipe(9, "Recipe9", LoremIpsum, 2, true, "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg"),
+				new Recipe(10, "Recipe10", LoremIpsum, 4, true, "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg"),
+				new Recipe(11, "Recipe11", LoremIpsum, 5, true, "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg"),
+				new Recipe(12, "Recipe12", LoremIpsum, 2, true, "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_960_720.jpg")
 			})
 		};
 	}
