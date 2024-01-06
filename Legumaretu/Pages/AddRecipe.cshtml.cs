@@ -49,7 +49,7 @@ namespace Legumaretu.Pages
 			if (Image != null && Image.Length > 0)
 			{
 				// Upload image to wwwroot/content/images/recipes
-                //Get file extension
+                // Get file extension
                 string fileExtension = Path.GetExtension(Image.FileName);
 				var fileName = Guid.NewGuid().ToString() + fileExtension;
 				var filePath = Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot\content\images\recipes", fileName);

@@ -1,6 +1,6 @@
 ﻿@use "vars.scss";
 
-.addrecipe {
+.editRecipe {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -14,7 +14,7 @@
 
         button {
             align-self: flex-end;
-            
+
             @include vars.formButton;
         }
     }

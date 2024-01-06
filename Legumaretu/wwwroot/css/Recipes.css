@@ -61,6 +61,14 @@
 .recipeStats i {
   color: gold;
 }
+.recipeStats #editRecipe {
+  align-self: flex-start;
+}
+.recipeStats #editRecipe i {
+  color: white;
+  width: 2em;
+  text-align: center;
+}
 
 #addrecipe {
   position: fixed;

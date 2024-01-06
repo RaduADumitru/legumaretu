@@ -22,5 +22,17 @@
   {
     "outputFile": "wwwroot/css/vars.css",
     "inputFile": "wwwroot/css/vars.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/Login.css",
+    "inputFile": "wwwroot/css/Login.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/register.css",
+    "inputFile": "wwwroot/css/register.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/editRecipe.css",
+    "inputFile": "wwwroot/css/editRecipe.scss"
   }
 ]
