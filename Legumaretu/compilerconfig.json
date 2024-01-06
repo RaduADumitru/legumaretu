@@ -1,18 +1,26 @@
 ﻿[
   {
+    "outputFile": "wwwroot/css/addRecipe.css",
+    "inputFile": "wwwroot/css/addRecipe.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/menu.css",
+    "inputFile": "wwwroot/css/menu.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/recipe.css",
+    "inputFile": "wwwroot/css/recipe.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/recipes.css",
+    "inputFile": "wwwroot/css/recipes.scss"
+  },
+  {
     "outputFile": "wwwroot/css/site.css",
     "inputFile": "wwwroot/css/site.scss"
   },
   {
-    "outputFile": "wwwroot/css/LandingContent.css",
-    "inputFile": "wwwroot/css/LandingContent.scss"
-  },
-  {
-    "outputFile": "wwwroot/css/MainHeader.css",
-    "inputFile": "wwwroot/css/MainHeader.scss"
-  },
-  {
-    "outputFile": "wwwroot/css/Recipe.css",
-    "inputFile": "wwwroot/css/Recipe.scss"
+    "outputFile": "wwwroot/css/vars.css",
+    "inputFile": "wwwroot/css/vars.scss"
   }
 ]
