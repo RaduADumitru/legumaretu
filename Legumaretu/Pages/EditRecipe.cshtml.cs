@@ -40,7 +40,7 @@ namespace Legumaretu.Pages
                 return NotFound();
             }
 
-            var recipe =  await _context.Recipes.FirstOrDefaultAsync(m => m.Id == id);
+            var recipe =  await _context.Recipes.Include(x => x.User).FirstOrDefaultAsync(m => m.Id == id);
             if (recipe == null)
             {
                 return NotFound();
