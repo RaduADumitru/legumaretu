@@ -1,0 +1,87 @@
+﻿@use "vars.scss";
+
+.recipeList {
+    margin: 0 vars.$pagemargins 1em vars.$pagemargins;
+   
+    > article {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+
+        @include vars.link;
+    }
+
+    margin-bottom: 2em;
+}
+
+.recipeContent {
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+
+    img {
+        width: 50%;
+        height: 35em;
+        border-radius: 20px;
+        box-shadow: -13px 12px vars.$fuzz 0px vars.$color3;
+        transition: box-shadow vars.$timing ease;
+
+        &:hover {
+            box-shadow: -23px 22px vars.$fuzz 0px vars.$color3;
+        }
+    }
+
+    pre {
+        width: 50%;
+        height: 35em;
+        padding: 2em;
+        white-space: pre-wrap;
+        font-family: 'Poppins', sans-serif;
+        font-size: 14px;
+        border: 1px solid vars.$secbg;
+        border-radius: 20px;
+        box-shadow: 13px -12px vars.$fuzz 0px vars.$color4;
+        transition: box-shadow vars.$timing ease;
+
+        &:hover {
+            box-shadow: 23px -22px vars.$fuzz 0px vars.$color4;
+        }
+
+        overflow: scroll;
+    }
+}
+
+.recipeStats {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1em;
+
+    > * {
+        border: 1px solid vars.$secbg;
+        border-radius: vars.$fuzz;
+        padding: 0.5em;
+    }
+
+    i {
+        color: gold;
+    }
+}
+
+#addrecipe {
+    position: fixed;
+    left: 90%;
+    top: 87%;
+    transform: translate(-20%, 0%);
+    padding: 1em;
+    text-decoration: none;
+    border-radius: vars.$fuzz;
+    color: vars.$textcol;
+    text-align: center;
+    box-shadow: 8px 8px vars.$fuzz -5px vars.$color2;
+    transition: color vars.$timing cubic-bezier(.67,.13,.36,1.46), box-shadow vars.$timing ease;
+
+    &:hover {
+        box-shadow: 12px 12px 15px -5px vars.$color2;
+        color: vars.$color3;
+    }
+}

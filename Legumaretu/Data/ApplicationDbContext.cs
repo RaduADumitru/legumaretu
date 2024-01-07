@@ -6,14 +6,12 @@ namespace Legumaretu.Data
 {
 	public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
 	{
-		public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-			: base(options)
-		{
-		}
+        public DbSet<Challenge> Challenges { get; set; }
+        public DbSet<Recipe> Recipes { get; set; }
+        public DbSet<ChTask> ChTasks { get; set; }
+        public DbSet<ChallengeProgress> ChallengeProgresses { get; set; }
 
-		public DbSet<Legumaretu.Models.Challenge> Challenges { get; set; }
-		public DbSet<Legumaretu.Models.Recipe> Recipes { get; set; }
-		public DbSet<Legumaretu.Models.ChTask> ChTasks { get; set; }
-		public DbSet<Legumaretu.Models.ChallengeProgress> ChallengeProgresses { get; set; }
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
+
 	}
 }

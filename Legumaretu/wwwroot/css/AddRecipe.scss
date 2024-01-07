@@ -1,0 +1,39 @@
+﻿@use "vars.scss";
+
+.addrecipe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    form {
+        display: flex;
+        flex-direction: column;
+        width: 30vw;
+        gap: 0.7em;
+
+        button {
+            align-self: flex-end;
+            width: 10em;
+            background: black;
+            padding: 0.5em;
+            text-align: center;
+            color: vars.$textcol;
+            border: 1px solid vars.$secbg;
+            border-radius: vars.$fuzz;
+            transition: color vars.$timing cubic-bezier(.67,.13,.36,1.46);
+
+            &:hover {
+                color: vars.$color3;
+            }
+
+            box-shadow: 8px 8px vars.$fuzz -5px vars.$color2;
+            transition: color vars.$timing cubic-bezier(.67,.13,.36,1.46), box-shadow vars.$timing ease;
+
+            &:hover {
+                box-shadow: 12px 12px vars.$fuzz -5px vars.$color2;
+                color: vars.$color3;
+            }
+        }
+    }
+}

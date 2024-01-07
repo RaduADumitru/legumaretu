@@ -4,6 +4,7 @@ using Legumaretu.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Legumaretu.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240104134927_RecipeImgLink")]
+    partial class RecipeImgLink
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,21 +23,6 @@ namespace Legumaretu.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
-
-            modelBuilder.Entity("ChallengeRecipe", b =>
-                {
-                    b.Property<int>("ChallengesId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("RecipesId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ChallengesId", "RecipesId");
-
-                    b.HasIndex("RecipesId");
-
-                    b.ToTable("ChallengeRecipe");
-                });
 
             modelBuilder.Entity("Legumaretu.Models.ApplicationUser", b =>
                 {
@@ -115,8 +102,7 @@ namespace Legumaretu.Data.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Official")
                         .HasColumnType("bit");
@@ -162,6 +148,9 @@ namespace Legumaretu.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<int?>("ChallengeId")
+                        .HasColumnType("int");
+
                     b.Property<int?>("ChallengeProgressId")
                         .HasColumnType("int");
 
@@ -172,6 +161,8 @@ namespace Legumaretu.Data.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ChallengeId");
 
                     b.HasIndex("ChallengeProgressId");
 
@@ -189,7 +180,6 @@ namespace Legumaretu.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImgLink")
@@ -353,21 +343,6 @@ namespace Legumaretu.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("ChallengeRecipe", b =>
-                {
-                    b.HasOne("Legumaretu.Models.Challenge", null)
-                        .WithMany()
-                        .HasForeignKey("ChallengesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Legumaretu.Models.Recipe", null)
-                        .WithMany()
-                        .HasForeignKey("RecipesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("Legumaretu.Models.Challenge", b =>
                 {
                     b.HasOne("Legumaretu.Models.ApplicationUser", "User")
@@ -386,7 +361,7 @@ namespace Legumaretu.Data.Migrations
                         .IsRequired();
 
                     b.HasOne("Legumaretu.Models.ApplicationUser", "User")
-                        .WithMany("ChallengeProgresses")
+                        .WithMany()
                         .HasForeignKey("UserId");
 
                     b.Navigation("Challenge");
@@ -396,7 +371,11 @@ namespace Legumaretu.Data.Migrations
 
             modelBuilder.Entity("Legumaretu.Models.ChTask", b =>
                 {
-                    b.HasOne("Legumaretu.Models.ChallengeProgress", "ChallengeProgress")
+                    b.HasOne("Legumaretu.Models.Challenge", null)
+                        .WithMany("ChTasks")
+                        .HasForeignKey("ChallengeId");
+
+                    b.HasOne("Legumaretu.Models.ChallengeProgress", null)
                         .WithMany("ChTasks")
                         .HasForeignKey("ChallengeProgressId");
 
@@ -405,8 +384,6 @@ namespace Legumaretu.Data.Migrations
                         .HasForeignKey("RecipeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("ChallengeProgress");
 
                     b.Navigation("Recipe");
                 });
@@ -473,11 +450,14 @@ namespace Legumaretu.Data.Migrations
 
             modelBuilder.Entity("Legumaretu.Models.ApplicationUser", b =>
                 {
-                    b.Navigation("ChallengeProgresses");
-
                     b.Navigation("Challenges");
 
                     b.Navigation("Recipes");
+                });
+
+            modelBuilder.Entity("Legumaretu.Models.Challenge", b =>
+                {
+                    b.Navigation("ChTasks");
                 });
 
             modelBuilder.Entity("Legumaretu.Models.ChallengeProgress", b =>
