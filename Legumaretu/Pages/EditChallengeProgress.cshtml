@@ -1,0 +1,43 @@
+﻿@page "{id}"
+@model Legumaretu.Pages.EditChallengeProgressModel
+
+@{
+    ViewData["Title"] = "EditChallengeProgress";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>EditChallengeProgress</h1>
+
+<h4>ChallengeProgress</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+	        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+	        <input type="hidden" asp-for="@Model.ChallengeProgress.Id" />
+	        <div class="form-group">
+		        <h2>Tasks</h2>
+		        @for (var i = 0; i < Model.ChallengeProgress.ChTasks.Count; i++)
+		        {
+			        <div>
+				        <label>
+					        <input type="hidden" asp-for="@Model.ChallengeProgress.ChTasks[i].Id" />
+					        <input type="checkbox" asp-for="@Model.ChallengeProgress.ChTasks[i].Done"/>
+					        <input type="hidden" asp-for="@Model.ChallengeProgress.ChTasks[i].Recipe.Id" />
+					        <input type="hidden" asp-for="@Model.ChallengeProgress.ChTasks[i].Recipe.Name" />
+					        <input type="hidden" asp-for="@Model.ChallengeProgress.ChTasks[i].Recipe.Stars" />
+					        @Model.ChallengeProgress.ChTasks[i].Recipe.Name
+				        </label>
+			        </div>
+		        }
+	        </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -16,6 +16,9 @@ namespace Legumaretu.Pages
     [Authorize(Roles = "Default,Moderator,Admin")]
     public class EditRecipeModel : PageModel
     {
+        [BindProperty]
+        public IFormFile? Image { get; set; }
+        private readonly string webRoot = "wwwroot";
         private readonly ILogger<IndexModel> _logger;
         private readonly Legumaretu.Data.ApplicationDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
@@ -37,7 +40,7 @@ namespace Legumaretu.Pages
                 return NotFound();
             }
 
-            var recipe =  await _context.Recipes.FirstOrDefaultAsync(m => m.Id == id);
+            var recipe =  await _context.Recipes.Include(x => x.User).FirstOrDefaultAsync(m => m.Id == id);
             if (recipe == null)
             {
                 return NotFound();
@@ -64,9 +67,21 @@ namespace Legumaretu.Pages
                 return Page();
             }
 
+            if (Image != null && Image.Length > 0)
+            {
+	            // Upload image to wwwroot/content/images/recipes
+	            //Get file extension
+	            string fileExtension = Path.GetExtension(Image.FileName);
+	            var fileName = Guid.NewGuid().ToString() + fileExtension;
+	            var filePath = Path.Combine(Directory.GetCurrentDirectory(), @"wwwroot\content\images\recipes", fileName);
+	            using (var fileStream = new FileStream(filePath, FileMode.Create))
+	            {
+		            Image.CopyTo(fileStream);
+	            }
+	            Recipe.ImgLink = "/content/images/recipes/" + fileName;
+            }
             _context.Attach(Recipe).State = EntityState.Modified;
-
-            try
+			try
             {
                 await _context.SaveChangesAsync();
             }
@@ -81,7 +96,6 @@ namespace Legumaretu.Pages
                     throw;
                 }
             }
-
             return RedirectToPage("./Index");
         }
 
