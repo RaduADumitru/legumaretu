@@ -36,7 +36,7 @@ namespace Legumaretu.Pages
 				return NotFound();
 			}
 
-			var challengeprogress = await _context.ChallengeProgresses.Include(x => x.ChTasks).ThenInclude(x => x.Recipe).FirstOrDefaultAsync(m => m.Id == id);
+			var challengeprogress = await _context.ChallengeProgresses.Include(x => x.User).Include(x => x.ChTasks).ThenInclude(x => x.Recipe).FirstOrDefaultAsync(m => m.Id == id);
 			if (challengeprogress == null)
 			{
 				return NotFound();
