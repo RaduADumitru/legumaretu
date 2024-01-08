@@ -1,0 +1,26 @@
+﻿@use "vars.scss";
+
+.logout {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    h2 {
+        text-align: center;
+        margin-bottom: 1em;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        width: 30vw;
+        gap: 0.1em;
+
+        button {
+            align-self: center;
+
+            @include vars.formButton;
+        }
+    }
+}

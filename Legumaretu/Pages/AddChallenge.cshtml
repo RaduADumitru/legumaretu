@@ -6,51 +6,25 @@
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<h1>CreateChallenge</h1>
+<section class="addchallenge">
+    <form method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-<h4>Challenge</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Challenge.Name" class="control-label"></label>
-                <input asp-for="Challenge.Name" class="form-control" />
-                <span asp-validation-for="Challenge.Name" class="text-danger"></span>
-            </div>
-	        <div class="form-group">
-		        <label asp-for="Challenge.Description" class="control-label"></label>
-		        <input asp-for="Challenge.Description" class="form-control" />
-		        <span asp-validation-for="Challenge.Description" class="text-danger"></span>
-	        </div>
-	        <div class="form-group">
-		        <label class="control-label">Recipes</label>
-		        @* <input asp-for="Challenge.Description" class="form-control" /> *@
-		        <select multiple asp-for="@Model.SelectedRecipeIds" asp-items="@Model.Recipes"></select><br />
-		        <span asp-validation-for="SelectedRecipeIds" class="text-danger"></span>
-	        </div>
-	        @* <div> *@
-		       @*  <label>Select Recipes:</label> *@
-		       @*  @foreach (var recipe in Model.Recipes) *@
-		       @*  { *@
-			      @*   <div> *@
-				     @*    <input type="checkbox" asp-for="SelectedRecipeIds" value="@recipe.Id" /> *@
-				     @*    <label>@recipe.Name</label> *@
-			      @*   </div> *@
-		       @*  } *@
-		       @*  <span asp-validation-for="SelectedRecipeIds" class="text-danger"></span> *@
-	        @* </div> *@
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
+        <label asp-for="Challenge.Name">Nume</label>
+        <input asp-for="Challenge.Name"/>
+        <span asp-validation-for="Challenge.Name" class="text-danger"></span>
 
-<div>
-    <a asp-page="Index">Back to List</a>
-</div>
+		<label asp-for="Challenge.Description">Descriere</label>
+		<input asp-for="Challenge.Description"/>
+		<span asp-validation-for="Challenge.Description" class="text-danger"></span>
+
+		<label>Rețete</label>
+		<select multiple asp-for="@Model.SelectedRecipeIds" asp-items="@Model.Recipes"></select><br />
+		<span asp-validation-for="SelectedRecipeIds" class="text-danger"></span>
+
+        <button>Adaugă</button>
+    </form>
+</section>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

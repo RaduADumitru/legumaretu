@@ -1,0 +1,92 @@
+﻿.challengesList {
+  margin: 0 15vw 1em 15vw;
+  margin-bottom: 2em;
+}
+.challengesList > article {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin-bottom: 3em;
+}
+.challengesList a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46);
+}
+.challengesList a:hover {
+  color: #F56345;
+}
+
+.challengeTitleDesc {
+  display: flex;
+  justify-content: space-between;
+}
+.challengeTitleDesc > p {
+  height: fit-content;
+  align-self: center;
+  border: 1px solid white;
+  border-radius: 15px;
+  padding: 0.5em;
+}
+
+.challengeRecipeList {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  border: 1px solid white;
+  border-radius: 20px;
+  padding: 2em;
+  box-shadow: 13px 12px 15px 0px #F56345;
+  transition: box-shadow 0.2s ease;
+}
+.challengeRecipeList:hover {
+  box-shadow: 23px 22px 15px 0px #F56345;
+}
+
+.challengeRecipe {
+  display: flex;
+  gap: 2em;
+  justify-content: space-between;
+}
+.challengeRecipe img {
+  width: 10em;
+  border-radius: 20px;
+  box-shadow: -10px 8px 15px 0px #F5BA45;
+  transition: box-shadow 0.2s ease;
+}
+.challengeRecipe img:hover {
+  box-shadow: -13px 10px 15px 0px #F5BA45;
+}
+.challengeRecipe h3, .challengeRecipe div {
+  align-self: center;
+}
+.challengeRecipe div {
+  display: flex;
+  gap: 1em;
+}
+.challengeRecipe div > * {
+  border: 1px solid white;
+  border-radius: 15px;
+  padding: 0.5em;
+}
+.challengeRecipe div i {
+  color: gold;
+}
+
+#addchallenge {
+  position: fixed;
+  left: 90%;
+  top: 87%;
+  transform: translate(-20%, 0%);
+  padding: 1em;
+  text-decoration: none;
+  border-radius: 15px;
+  color: white;
+  text-align: center;
+  box-shadow: 8px 8px 15px -5px #F54545;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46), box-shadow 0.2s ease;
+}
+#addchallenge:hover {
+  box-shadow: 12px 12px 15px -5px #F54545;
+  color: #F56345;
+}

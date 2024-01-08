@@ -34,5 +34,17 @@
   {
     "outputFile": "wwwroot/css/editRecipe.css",
     "inputFile": "wwwroot/css/editRecipe.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/logout.css",
+    "inputFile": "wwwroot/css/logout.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/challenges.css",
+    "inputFile": "wwwroot/css/challenges.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/addchallenge.css",
+    "inputFile": "wwwroot/css/addchallenge.scss"
   }
 ]

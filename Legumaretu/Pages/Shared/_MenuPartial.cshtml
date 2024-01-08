@@ -6,7 +6,7 @@
 <nav>
     <ul>
         <li><a asp-page="/Index">Rețete</a></li>
-        <li><a href="https://docs.microsoft.com/aspnet/core">Provocări</a></li>
+        <li><a asp-page="/Challenges">Provocări</a></li>
     </ul>
 </nav>
 @if (!SignInManager.IsSignedIn(User))
