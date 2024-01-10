@@ -73,7 +73,7 @@
   color: gold;
 }
 
-#addchallenge {
+#addchallenge, #signupforchallenge {
   position: fixed;
   left: 90%;
   top: 87%;
@@ -86,7 +86,12 @@
   box-shadow: 8px 8px 15px -5px #F54545;
   transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46), box-shadow 0.2s ease;
 }
-#addchallenge:hover {
+#addchallenge:hover, #signupforchallenge:hover {
   box-shadow: 12px 12px 15px -5px #F54545;
   color: #F56345;
+}
+
+#signupforchallenge {
+  left: 90%;
+  top: 78%;
 }

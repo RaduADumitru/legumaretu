@@ -6,9 +6,20 @@
 @use "editRecipe.scss";
 @use "challenges.scss";
 @use "addChallenge.scss";
+@use "signUpForChallenge.scss";
 @use "login.scss";
 @use "logout.scss";
 @use "register.scss";
+
+h1 {
+    color: vars.$textcol;
+    transition: color vars.$timing ease;
+    transition: text-shadow ease vars.$timing;
+
+    &:hover {
+        text-shadow: 0px 0px 5px vars.$color1, 0px 1px 5px vars.$color2, 0px 2px 5px vars.$color3, 0px 3px 5px vars.$color4, 0px 4px 5px vars.$color5;
+    }
+}
 
 html {
     font-size: 14px;

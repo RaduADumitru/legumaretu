@@ -79,7 +79,7 @@
     }
 }
 
-#addchallenge {
+#addchallenge, #signupforchallenge {
     position: fixed;
     left: 90%;
     top: 87%;
@@ -96,4 +96,9 @@
         box-shadow: 12px 12px 15px -5px vars.$color2;
         color: vars.$color3;
     }
+}
+
+#signupforchallenge {
+    left: 90%;
+    top: 78%;
 }

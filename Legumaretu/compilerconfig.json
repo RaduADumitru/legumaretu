@@ -46,5 +46,9 @@
   {
     "outputFile": "wwwroot/css/addchallenge.css",
     "inputFile": "wwwroot/css/addchallenge.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/signUpForChallenge.css",
+    "inputFile": "wwwroot/css/signUpForChallenge.scss"
   }
 ]

@@ -1,14 +1,21 @@
 ﻿.menu {
   display: flex;
   justify-content: center;
-  gap: 6vw;
   padding: 0 2em 0 2em;
   margin: 2em 0 3em 0;
+}
+.menu > * {
+  margin: 0 3vw 0 3vw;
+}
+.menu h1 {
+  align-self: center;
+  margin-left: 0.7em;
 }
 .menu img {
   width: 7em;
   height: 7em;
   border-radius: 20px;
+  margin-right: 0;
 }
 .menu nav {
   align-self: center;
@@ -329,7 +336,7 @@
   color: gold;
 }
 
-#addchallenge {
+#addchallenge, #signupforchallenge {
   position: fixed;
   left: 90%;
   top: 87%;
@@ -342,9 +349,14 @@
   box-shadow: 8px 8px 15px -5px #F54545;
   transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46), box-shadow 0.2s ease;
 }
-#addchallenge:hover {
+#addchallenge:hover, #signupforchallenge:hover {
   box-shadow: 12px 12px 15px -5px #F54545;
   color: #F56345;
+}
+
+#signupforchallenge {
+  left: 90%;
+  top: 78%;
 }
 
 .addchallenge {
@@ -376,6 +388,39 @@
   color: #F56345;
 }
 .addchallenge form button:hover {
+  box-shadow: 12px 12px 15px -5px #F54545;
+  color: #F56345;
+}
+
+.signupforchallenge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.signupforchallenge form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7em;
+  margin-top: 2em;
+}
+.signupforchallenge form button {
+  align-self: flex-end;
+  width: 10em;
+  background: black;
+  padding: 0.5em;
+  text-align: center;
+  color: white;
+  border: 1px solid white;
+  border-radius: 15px;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46);
+  box-shadow: 8px 8px 15px -5px #F54545;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46), box-shadow 0.2s ease;
+}
+.signupforchallenge form button:hover {
+  color: #F56345;
+}
+.signupforchallenge form button:hover {
   box-shadow: 12px 12px 15px -5px #F54545;
   color: #F56345;
 }
@@ -517,6 +562,15 @@
 }
 .registerFormErrors ul li {
   list-style: none;
+}
+
+h1 {
+  color: white;
+  transition: color 0.2s ease;
+  transition: text-shadow ease 0.2s;
+}
+h1:hover {
+  text-shadow: 0px 0px 5px #F58344, 0px 1px 5px #F54545, 0px 2px 5px #F56345, 0px 3px 5px #F5A145, 0px 4px 5px #F5BA45;
 }
 
 html {

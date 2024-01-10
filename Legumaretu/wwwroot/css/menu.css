@@ -1,14 +1,21 @@
 ﻿.menu {
   display: flex;
   justify-content: center;
-  gap: 6vw;
   padding: 0 2em 0 2em;
   margin: 2em 0 3em 0;
+}
+.menu > * {
+  margin: 0 3vw 0 3vw;
+}
+.menu h1 {
+  align-self: center;
+  margin-left: 0.7em;
 }
 .menu img {
   width: 7em;
   height: 7em;
   border-radius: 20px;
+  margin-right: 0;
 }
 .menu nav {
   align-self: center;
