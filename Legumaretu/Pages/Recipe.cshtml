@@ -1,22 +1,29 @@
 ﻿@page
 @model Legumaretu.Pages.RecipeModel
 
-<section class="recipe">
-    <img src="@Model.Recipe.ImgLink"/>
-    <h2>@Model.Recipe.Name
-        @if (Model.Recipe.Official)
-        {
-            <span class="fa-solid fa-circle-check" title="Rețetă adăugată de moderatori"></span>
-        }
-    </h2>
-    <div>
-        <p>
-            @for (int i = 0; i < Model.Recipe.Stars; i++)
+@if(Model.Recipe == null)
+{
+    <p class="text-center">Rețeta căutată nu există :(</p>
+}
+else
+{
+    <section class="recipe">
+        <img src="@Model.Recipe.ImgLink"/>
+        <h2>@Model.Recipe.Name
+            @if (Model.Recipe.Official)
             {
-                <i class="fa-solid fa-star"></i>
+                <span class="fa-solid fa-circle-check" title="Rețetă adăugată de moderatori"></span>
             }
-        </p>
-        <p>@(Model.Recipe.Stars * 20) p</p>
-    </div>
-    <pre>@Model.Recipe.Description</pre>
-</section>
+        </h2>
+        <div>
+            <p>
+                @for (int i = 0; i < Model.Recipe.Stars; i++)
+                {
+                    <i class="fa-solid fa-star"></i>
+                }
+            </p>
+            <p>@(Model.Recipe.Stars * 20) p</p>
+        </div>
+        <pre>@Model.Recipe.Description</pre>
+    </section>
+}

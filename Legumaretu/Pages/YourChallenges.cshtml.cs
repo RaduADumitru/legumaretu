@@ -19,7 +19,7 @@ namespace Legumaretu.Pages
 
         public void OnGet()
         {
-            Progresses = _context.ChallengeProgresses.Include(p => p.Challenge).Include(p => p.ChTasks).ToList();
+            Progresses = _context.ChallengeProgresses.Include(p => p.Challenge).Include(p => p.ChTasks).Include(p => p.Challenge.Recipes).ToList();
         }
     }
 }

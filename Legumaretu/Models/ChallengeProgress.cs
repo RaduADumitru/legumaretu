@@ -17,4 +17,15 @@ public class ChallengeProgress
 	}
 
 	public ChallengeProgress() {  }
+
+	public bool Completed()
+	{
+		foreach(var chTask in ChTasks)
+		{
+			if (!chTask.Done)
+				return false;
+		}
+
+		return true;
+	}
 }

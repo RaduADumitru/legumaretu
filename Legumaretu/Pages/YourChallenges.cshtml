@@ -1,11 +1,60 @@
 ﻿@page
 @model Legumaretu.Pages.YourChallengesModel
 @{
-	var test = string.Join(",", Model.Progresses[0]);
 }
 
-<section>
-	<article>
-		@test
-	</article>
+<section class="challengesList">
+	@foreach(var prog in Model.Progresses)
+	{
+		<article>
+            <div class="challengesTitleDesc">
+                <div>
+                    <h2>
+                        @prog.Challenge.Name
+                        @if (@prog.Challenge.Official)
+                        {
+                            <span class="fa-solid fa-circle-check" title="Provocare adăugată de moderatori"></span>
+                        }
+                    </h2>
+                    <p>@prog.Challenge.Description</p>
+                </div>
+                <p>@prog.Challenge.TotalPoints() p</p>
+            </div>
+            <div class="challengeRecipeList">
+                @if (prog.Challenge.Recipes.Count() == 0)
+                {
+                    <p class="text-center">Nu există rețete în această provocare :(.</p>
+                }
+                else
+                {
+                    @foreach (var recipe in prog.Challenge.Recipes)
+                    {
+                        <div class="challengeRecipe">
+                            <img src="@recipe.ImgLink" />
+                            <h3>
+                                <a asp-page="/Recipe" asp-route-recipeId="@recipe.Id">@recipe.Name</a>
+                                @if (@recipe.Official)
+                                {
+                                    <span class="fa-solid fa-circle-check" title="Rețetă adăugată de moderatori"></span>
+                                }
+                            </h3>
+                            <div>
+                                <p>
+                                    @for (int i = 0; i < @recipe.Stars; i++)
+                                    {
+                                        <i class="fa-solid fa-star"></i>
+                                    }
+                                </p>
+                                <p>@(@recipe.Stars * 20) p</p>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+
+			<p>Bonus: @Math.Floor((Decimal)(prog.Challenge.TotalPoints() / 4))</p>
+			<p>@prog.ChTasks.Count(t => t.Done) / @prog.ChTasks.Count()</p>
+			<a asp-page="EditChallengeProgress" asp-route-id="@prog.Id">Modifică progresul</a>
+		</article>
+	}
 </section>
