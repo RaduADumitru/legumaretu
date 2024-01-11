@@ -54,5 +54,13 @@
   {
     "outputFile": "wwwroot/css/yourChallenges.css",
     "inputFile": "wwwroot/css/yourChallenges.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/editChallengeProgress.css",
+    "inputFile": "wwwroot/css/editChallengeProgress.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/giveUpOnChallenge.css",
+    "inputFile": "wwwroot/css/giveUpOnChallenge.scss"
   }
 ]

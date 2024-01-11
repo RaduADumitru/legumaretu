@@ -5,12 +5,32 @@
 
 <nav>
     <ul>
-        <li><a asp-page="/Index">Rețete</a></li>
-        <li><a asp-page="/Challenges">Provocări</a></li>
+        @if(Model.GetType().Name == "IndexModel") {
+            <li><a asp-page="/Index">Rețete</a></li>
+        }
+        else
+        {
+            <li><a asp-page="/Index">Rețete</a></li>
+        }
+
+        @if(Model.GetType().Name == "ChallengesModel") {
+            <li><a asp-page="/Challenges">Provocări</a></li>
+        }
+        else
+        {
+            <li><a asp-page="/Challenges">Provocări</a></li>
+        }
 
         @if (SignInManager.IsSignedIn(User) && User.IsInRole("Default"))
         {
-            <li><a asp-page="/YourChallenges">Progresul tău</a></li>
+            @if (Model.GetType().Name == "YourChallengesModel")
+            {
+                <li><a asp-page="/YourChallenges">Progresul tău</a></li>
+            }
+            else
+            {
+                <li><a asp-page="/YourChallenges">Progresul tău</a></li>
+            }
         }
     </ul>
 </nav>

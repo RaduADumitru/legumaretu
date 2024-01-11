@@ -19,7 +19,6 @@
 }
 .menu nav {
   align-self: center;
-  font-weight: bolder;
   font-size: 1.4em;
 }
 .menu nav > ul {
@@ -421,6 +420,175 @@
   color: #F56345;
 }
 .signupforchallenge form button:hover {
+  box-shadow: 12px 12px 15px -5px #F54545;
+  color: #F56345;
+}
+
+.yourChallengesList {
+  margin: 0 15vw 1em 15vw;
+  margin-bottom: 2em;
+}
+.yourChallengesList > article {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin-bottom: 3em;
+}
+.yourChallengesList a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46);
+}
+.yourChallengesList a:hover {
+  color: #F56345;
+}
+
+.yourChallengesTitleDesc {
+  display: flex;
+  justify-content: space-between;
+}
+.yourChallengesTitleDesc > div {
+  display: flex;
+  gap: 1em;
+}
+.yourChallengesTitleDesc > div:nth-child(1) {
+  flex-direction: column;
+}
+.yourChallengesTitleDesc > div:nth-child(2) > * {
+  align-self: last baseline;
+  height: fit-content;
+  border: 1px solid white;
+  border-radius: 15px;
+  padding: 0.5em;
+}
+.yourChallengesTitleDesc > div:nth-child(2) a {
+  width: 10em;
+  background: black;
+  padding: 0.5em;
+  text-align: center;
+  color: white;
+  border: 1px solid white;
+  border-radius: 15px;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46);
+  box-shadow: 8px 8px 15px -5px #F54545;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46), box-shadow 0.2s ease;
+  width: fit-content;
+}
+.yourChallengesTitleDesc > div:nth-child(2) a:hover {
+  color: #F56345;
+}
+.yourChallengesTitleDesc > div:nth-child(2) a:hover {
+  box-shadow: 12px 12px 15px -5px #F54545;
+  color: #F56345;
+}
+
+.yourChallengeRecipeList {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  border: 1px solid white;
+  border-radius: 20px;
+  padding: 2em;
+  box-shadow: 13px 12px 15px 0px #F56345;
+  transition: box-shadow 0.2s ease;
+}
+.yourChallengeRecipeList:hover {
+  box-shadow: 23px 22px 15px 0px #F56345;
+}
+
+.yourChallengeRecipe {
+  display: flex;
+  gap: 2em;
+  justify-content: space-between;
+}
+.yourChallengeRecipe img {
+  width: 10em;
+  border-radius: 20px;
+  box-shadow: -10px 8px 15px 0px #F5BA45;
+  transition: box-shadow 0.2s ease;
+}
+.yourChallengeRecipe img:hover {
+  box-shadow: -13px 10px 15px 0px #F5BA45;
+}
+.yourChallengeRecipe h3, .yourChallengeRecipe div {
+  align-self: center;
+}
+.yourChallengeRecipe div {
+  display: flex;
+  gap: 1em;
+}
+.yourChallengeRecipe div > * {
+  border: 1px solid white;
+  border-radius: 15px;
+  padding: 0.5em;
+}
+.yourChallengeRecipe div i {
+  color: gold;
+}
+
+.editchallengeprogress {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.editchallengeprogress form {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  gap: 0.7em;
+}
+.editchallengeprogress form button {
+  align-self: flex-end;
+  width: 10em;
+  background: black;
+  padding: 0.5em;
+  text-align: center;
+  color: white;
+  border: 1px solid white;
+  border-radius: 15px;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46);
+  box-shadow: 8px 8px 15px -5px #F54545;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46), box-shadow 0.2s ease;
+}
+.editchallengeprogress form button:hover {
+  color: #F56345;
+}
+.editchallengeprogress form button:hover {
+  box-shadow: 12px 12px 15px -5px #F54545;
+  color: #F56345;
+}
+
+.giveuponchallenge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.giveuponchallenge form {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  gap: 0.7em;
+}
+.giveuponchallenge form button {
+  text-align: center;
+  align-self: flex-end;
+  width: 10em;
+  background: black;
+  padding: 0.5em;
+  text-align: center;
+  color: white;
+  border: 1px solid white;
+  border-radius: 15px;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46);
+  box-shadow: 8px 8px 15px -5px #F54545;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46), box-shadow 0.2s ease;
+}
+.giveuponchallenge form button:hover {
+  color: #F56345;
+}
+.giveuponchallenge form button:hover {
   box-shadow: 12px 12px 15px -5px #F54545;
   color: #F56345;
 }
