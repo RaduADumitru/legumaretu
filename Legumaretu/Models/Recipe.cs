@@ -9,7 +9,7 @@ namespace Legumaretu.Models
         [StringLength(50)]
         public string Name { get; set; }
         [Required(ErrorMessage = "Descrierea rețetei este obligatorie!")]
-        public string? Description { get; set; }
+        public string Description { get; set; }
         [Range(1, 5, ErrorMessage = "Rating-ul de dificultate trebuie să fie între 1 și 5 stele!")]
         public int Stars { get; set; }
         public bool Official { get; set; }
