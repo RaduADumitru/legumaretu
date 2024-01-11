@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Legumaretu.Data;
 
 namespace Legumaretu.Models
 {
@@ -28,5 +29,22 @@ namespace Legumaretu.Models
             ImgLink = imglink;
         }
         public Recipe() { }
+
+        public void Delete(ApplicationDbContext applicationDbContext)
+        {
+	        if (ChTasks != null)
+	        {
+		        foreach (var chTask in ChTasks)
+		        {
+					chTask.Delete(applicationDbContext);
+     //                // remove the challenge progress associated with the chTask if it has no more tasks
+     //                if (chTask.ChallengeProgress.ChTasks.Count == 1)
+     //                {
+					// 	chTask.ChallengeProgress.Delete(applicationDbContext);
+					// }
+				}
+			}
+			applicationDbContext.Recipes.Remove(this);
+        }
     }
 }
