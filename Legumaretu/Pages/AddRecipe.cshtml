@@ -5,7 +5,7 @@
 
 <section class="addrecipe">
 	<h2>Adaugă o rețetă</h2>
-	<form method="post">
+	<form method="post" enctype="multipart/form-data">
 		<label>Nume</label>
 		<input asp-for="Recipe.Name"/>
 		<span asp-validation-for="Recipe.Name" class="text-danger"></span>
