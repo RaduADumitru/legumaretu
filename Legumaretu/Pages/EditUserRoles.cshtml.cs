@@ -33,7 +33,7 @@ namespace Legumaretu.Pages
 			var user = await _userManager.FindByIdAsync(userId);
 			if (user == null)
 			{
-				return NotFound();
+				return RedirectToPage("./Error");
 			}
 
 			UserId = userId;
@@ -48,7 +48,7 @@ namespace Legumaretu.Pages
 			var user = await _userManager.FindByIdAsync(UserId);
 			if (user == null)
 			{
-				return NotFound();
+				return RedirectToPage("./Error");
 			}
 
 			var existingRoles = await _userManager.GetRolesAsync(user);

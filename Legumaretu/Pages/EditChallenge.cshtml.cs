@@ -34,14 +34,14 @@ namespace Legumaretu.Pages
         {
             if (id == null || _context.Challenges == null)
             {
-                return NotFound();
-            }
+                return RedirectToPage("./Error");
+			}
 
             var challenge =  await _context.Challenges.Include(x => x.User).FirstOrDefaultAsync(m => m.Id == id);
             if (challenge == null)
             {
-                return NotFound();
-            }
+                return RedirectToPage("./Error");
+			}
             Challenge = challenge;
             // Default users can only edit their own challenges
             if (!User.IsInRole("Admin") && !User.IsInRole("Moderator"))
@@ -49,8 +49,8 @@ namespace Legumaretu.Pages
                 ApplicationUser user = _userManager.GetUserAsync(User).Result;
                 if (user == null || challenge.User.Id != user.Id)
                 {
-                    return NotFound();
-                }
+                    return RedirectToPage("./Error");
+				}
             }
             return Page();
         }
@@ -74,15 +74,15 @@ namespace Legumaretu.Pages
             {
                 if (!ChallengeExists(Challenge.Id))
                 {
-                    return NotFound();
-                }
+                    return RedirectToPage("./Error");
+				}
                 else
                 {
                     throw;
                 }
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Challenges");
         }
 
         private bool ChallengeExists(int id)

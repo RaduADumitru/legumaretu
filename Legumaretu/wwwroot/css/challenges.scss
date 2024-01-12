@@ -1,0 +1,104 @@
+﻿@use "vars.scss";
+
+.challengesList {
+    margin: 0 vars.$pagemargins 1em vars.$pagemargins;
+
+    > article {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        margin-bottom: 3em;
+    }
+
+    margin-bottom: 2em;
+
+    @include vars.link;
+}
+
+.challengeTitleDesc {
+    display: flex;
+    justify-content: space-between;
+
+    > p {
+        height: fit-content;
+        align-self: center;
+        border: 1px solid vars.$secbg;
+        border-radius: vars.$fuzz;
+        padding: 0.5em;
+    }
+}
+
+.challengeRecipeList {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    border: 1px solid vars.$secbg;
+    border-radius: vars.$radius;
+    padding: 2em;
+    box-shadow: 13px 12px vars.$fuzz 0px vars.$color3;
+    transition: box-shadow vars.$timing ease;
+
+    &:hover {
+        box-shadow: 23px 22px vars.$fuzz 0px vars.$color3;
+    }
+}
+
+.challengeRecipe {
+    display: flex;
+    gap: 2em;
+    justify-content: space-between;
+
+    img {
+        width: 10em;
+        border-radius: 20px;
+        box-shadow: -10px 8px vars.$fuzz 0px vars.$color5;
+        transition: box-shadow vars.$timing ease;
+
+        &:hover {
+            box-shadow: -13px 10px vars.$fuzz 0px vars.$color5;
+        }
+    }
+
+    h3, div {
+        align-self: center;
+    }
+
+    div {
+        display: flex;
+        gap: 1em;
+
+        > * {
+            border: 1px solid vars.$secbg;
+            border-radius: vars.$fuzz;
+            padding: 0.5em;
+        }
+
+        i {
+            color: gold;
+        }
+    }
+}
+
+#addchallenge, #signupforchallenge {
+    position: fixed;
+    left: 90%;
+    top: 87%;
+    transform: translate(-20%, 0%);
+    padding: 1em;
+    text-decoration: none;
+    border-radius: vars.$fuzz;
+    color: vars.$textcol;
+    text-align: center;
+    box-shadow: 8px 8px vars.$fuzz -5px vars.$color2;
+    transition: color vars.$timing cubic-bezier(.67,.13,.36,1.46), box-shadow vars.$timing ease;
+
+    &:hover {
+        box-shadow: 12px 12px 15px -5px vars.$color2;
+        color: vars.$color3;
+    }
+}
+
+#signupforchallenge {
+    left: 90%;
+    top: 78%;
+}

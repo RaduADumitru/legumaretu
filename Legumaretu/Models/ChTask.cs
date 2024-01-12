@@ -1,4 +1,6 @@
-﻿namespace Legumaretu.Models
+﻿using Legumaretu.Data;
+
+namespace Legumaretu.Models
 {
 	public class ChTask
 	{
@@ -29,5 +31,10 @@
         }
 
 		public ChTask() { }
+
+		public void Delete(ApplicationDbContext applicationDbContext)
+		{
+			applicationDbContext.ChTasks.Remove(this);
+		}
 	}
 }

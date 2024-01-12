@@ -37,14 +37,14 @@ namespace Legumaretu.Pages
         {
             if (id == null || _context.Recipes == null)
             {
-                return NotFound();
-            }
+                return RedirectToPage("./Error");
+			}
 
             var recipe =  await _context.Recipes.Include(x => x.User).FirstOrDefaultAsync(m => m.Id == id);
             if (recipe == null)
             {
-                return NotFound();
-            }
+                return RedirectToPage("./Error");
+			}
             Recipe = recipe;
             // Default users can only edit their own recipes
             if (!User.IsInRole("Admin") && !User.IsInRole("Moderator"))
@@ -52,8 +52,8 @@ namespace Legumaretu.Pages
                 ApplicationUser user = _userManager.GetUserAsync(User).Result;
                 if (user == null || recipe.User.Id != user.Id)
                 {
-                    return NotFound();
-                }
+                    return RedirectToPage("./Error");
+				}
             }
             return Page();
         }
@@ -89,8 +89,8 @@ namespace Legumaretu.Pages
             {
                 if (!RecipeExists(Recipe.Id))
                 {
-                    return NotFound();
-                }
+                    return RedirectToPage("./Error");
+				}
                 else
                 {
                     throw;

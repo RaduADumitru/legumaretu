@@ -33,15 +33,15 @@ namespace Legumaretu.Pages
         {
             if (id == null || _context.ChallengeProgresses == null)
             {
-                return NotFound();
+                return RedirectToPage("./Error");
             }
 
             var challengeprogress = await _context.ChallengeProgresses.Include(x => x.Challenge).FirstOrDefaultAsync(m => m.Id == id);
 
             if (challengeprogress == null)
             {
-                return NotFound();
-            }
+                return RedirectToPage("./Error");
+			}
             else 
             {
                 ChallengeProgress = challengeprogress;
@@ -51,7 +51,7 @@ namespace Legumaretu.Pages
 					ApplicationUser user = _userManager.GetUserAsync(User).Result;
 					if (user == null || challengeprogress.User.Id != user.Id)
 					{
-						return NotFound();
+						return RedirectToPage("./Error");
 					}
 				}
             }
@@ -62,8 +62,8 @@ namespace Legumaretu.Pages
         {
             if (id == null || _context.ChallengeProgresses == null)
             {
-                return NotFound();
-            }
+                return RedirectToPage("./Error");
+			}
             var challengeprogress = await _context.ChallengeProgresses.Include(x => x.ChTasks).FirstOrDefaultAsync(m => m.Id == id);
 
             if (challengeprogress != null)
@@ -78,7 +78,7 @@ namespace Legumaretu.Pages
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./YourChallenges");
         }
     }
 }

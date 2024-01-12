@@ -1,0 +1,21 @@
+﻿@use "vars.scss";
+
+.signupforchallenge {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 0.7em;
+        margin-top: 2em;
+
+        button {
+            align-self: flex-end;
+
+            @include vars.formButton;
+        }
+    }
+}

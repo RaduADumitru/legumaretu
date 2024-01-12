@@ -65,6 +65,16 @@
     i {
         color: gold;
     }
+
+    #editRecipe {
+        align-self: flex-start;
+
+        i {
+            color: vars.$textcol;
+            width: 2em;
+            text-align: center;
+        }
+    }
 }
 
 #addrecipe {

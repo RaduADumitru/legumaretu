@@ -1,0 +1,32 @@
+﻿.editchallengeprogress {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.editchallengeprogress form {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  gap: 0.7em;
+}
+.editchallengeprogress form button {
+  align-self: flex-end;
+  width: 10em;
+  background: black;
+  padding: 0.5em;
+  text-align: center;
+  color: white;
+  border: 1px solid white;
+  border-radius: 15px;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46);
+  box-shadow: 8px 8px 15px -5px #F54545;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46), box-shadow 0.2s ease;
+}
+.editchallengeprogress form button:hover {
+  color: #F56345;
+}
+.editchallengeprogress form button:hover {
+  box-shadow: 12px 12px 15px -5px #F54545;
+  color: #F56345;
+}

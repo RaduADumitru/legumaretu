@@ -39,7 +39,7 @@ namespace Legumaretu.Pages
         public Challenge Challenge { get; set; } = default!;
 
         [BindProperty]
-        [Required(ErrorMessage = "Select at least one recipe for the challenge."), MinLength(1)]
+        [Required(ErrorMessage = "Selectează cel puțin o rețetă"), MinLength(1)]
         public int[] SelectedRecipeIds { get; set; } = default!; // To store selected recipe IDs
         public List<SelectListItem> Recipes { get; set; }
 
@@ -71,7 +71,7 @@ namespace Legumaretu.Pages
             _context.Challenges.Add(Challenge);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Challenges");
         }
     }
 }
