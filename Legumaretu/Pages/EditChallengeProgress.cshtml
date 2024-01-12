@@ -1,4 +1,4 @@
-﻿@page "{id}"
+@page "{id}"
 @model Legumaretu.Pages.EditChallengeProgressModel
 
 @{
@@ -14,7 +14,6 @@
 	    <input type="hidden" asp-for="@Model.ChallengeProgress.Id" />
 
 		<h3>Rețete din provocare</h3>
-		
 		@for (var i = 0; i < Model.ChallengeProgress.ChTasks.Count; i++)
 		{
 			<label>
@@ -23,6 +22,8 @@
 				<input type="hidden" asp-for="@Model.ChallengeProgress.ChTasks[i].Recipe.Id" />
 				<input type="hidden" asp-for="@Model.ChallengeProgress.ChTasks[i].Recipe.Name" />
 				<input type="hidden" asp-for="@Model.ChallengeProgress.ChTasks[i].Recipe.Stars" />
+        <input type="hidden" asp-for="@Model.ChallengeProgress.ChTasks[i].Recipe.Description" />
+        <input type="hidden" asp-for="@Model.ChallengeProgress.ChTasks[i].Recipe.ImgLink" />
 				@Model.ChallengeProgress.ChTasks[i].Recipe.Name
 			</label>
 		}

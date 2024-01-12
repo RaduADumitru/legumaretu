@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Legumaretu.Data;
 
 namespace Legumaretu.Models
 {
@@ -9,7 +10,7 @@ namespace Legumaretu.Models
         [StringLength(50)]
         public string Name { get; set; }
         [Required(ErrorMessage = "Descrierea rețetei este obligatorie!")]
-        public string? Description { get; set; }
+        public string Description { get; set; }
         [Range(1, 5, ErrorMessage = "Rating-ul de dificultate trebuie să fie între 1 și 5 stele!")]
         public int Stars { get; set; }
         public bool Official { get; set; }
@@ -28,5 +29,22 @@ namespace Legumaretu.Models
             ImgLink = imglink;
         }
         public Recipe() { }
+
+        public void Delete(ApplicationDbContext applicationDbContext)
+        {
+	        if (ChTasks != null)
+	        {
+		        foreach (var chTask in ChTasks)
+		        {
+					chTask.Delete(applicationDbContext);
+     //                // remove the challenge progress associated with the chTask if it has no more tasks
+     //                if (chTask.ChallengeProgress.ChTasks.Count == 1)
+     //                {
+					// 	chTask.ChallengeProgress.Delete(applicationDbContext);
+					// }
+				}
+			}
+			applicationDbContext.Recipes.Remove(this);
+        }
     }
 }
