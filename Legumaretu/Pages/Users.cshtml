@@ -1,0 +1,41 @@
+﻿@page
+@model Legumaretu.Pages.UsersModel
+
+@{
+	ViewData["Title"] = "Users";
+	Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Users</h1>
+
+
+@foreach (var user in Model.Users)
+{
+	<h2>@user.UserName</h2>
+	<h3>Recipes</h3>
+	<ul>
+		@foreach (var recipe in user.Recipes)
+		{
+			<li>@recipe.Name</li>
+		}
+	</ul>
+	<h3>Challenges</h3>
+	<ul>
+		@foreach (var challenge in user.Challenges)
+		{
+			<li>@challenge.Name</li>
+		}
+	</ul>
+	<h3>Challenge progresses</h3>
+	<ul>
+		@foreach (var challengeProgress in user.ChallengeProgresses)
+		{
+			<li>@challengeProgress.Challenge.Name</li>
+			@foreach (var chtask in challengeProgress.ChTasks)
+			{
+				<li>@chtask.Recipe.Name</li>
+				<li>@chtask.Done</li>
+			}
+		}
+	</ul>
+}
