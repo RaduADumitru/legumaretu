@@ -5,19 +5,27 @@ $menuh: 3em;
 .menu {
     display: flex;
     justify-content: center;
-    gap: 6vw;
     padding: 0 2em 0 2em;
     margin: 2em 0 3em 0;
+
+    > * {
+        margin: 0 3vw 0 3vw;
+    }
+
+    h1 {
+        align-self: center;
+        margin-left: 0.7em;
+    }
 
     img {
         width: 7em;
         height: 7em;
-        border-radius: 80px;
+        border-radius: 20px;
+        margin-right: 0;
     }
 
     nav {
         align-self: center;
-        font-weight: bolder;
         font-size: 1.4em;
 
         > ul {

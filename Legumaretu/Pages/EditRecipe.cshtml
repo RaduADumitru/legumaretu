@@ -2,49 +2,36 @@
 @model Legumaretu.Pages.EditRecipeModel
 
 @{
-	ViewData["Title"] = "EditRecipe";
+	ViewData["Title"] = "Modifică rețeta";
 	Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<h1>Edit Recipe</h1>
+<section class="editRecipe">
+	<h2>Modifică o rețetă</h2>
+	<form method="post" enctype="multipart/form-data">
+		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-<h4>Recipe</h4>
-<hr />
-<div class="row">
-	<div class="col-md-4">
-		<form method="post" enctype="multipart/form-data">
-			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
-			<input type="hidden" asp-for="Recipe.Id" />
-			<div class="form-group">
-				<label asp-for="Recipe.Name" class="control-label"></label>
-				<input asp-for="Recipe.Name" class="form-control" />
-				<span asp-validation-for="Recipe.Name" class="text-danger"></span>
-			</div>
-			<div class="form-group">
-				<label asp-for="Recipe.Description" class="control-label"></label>
-				<input asp-for="Recipe.Description" class="form-control" />
-				<span asp-validation-for="Recipe.Description" class="text-danger"></span>
-			</div>
-			<div class="form-group">
-				<label asp-for="Recipe.Stars" class="control-label"></label>
-				<input type="number" min="1" max="5" value="1" asp-for="Recipe.Stars" class="form-control" />
-				<span asp-validation-for="Recipe.Stars" class="text-danger"></span>
-			</div>
-			<div class="form-group">
-				<label asp-for="Image" class="control-label"></label>
-				<input type="file" accept="image/*" asp-for="@Model.Image" class="form-control" />
-				<span asp-validation-for="@Model.Image" class="text-danger"></span>
-			</div>
-			<div class="form-group">
-				<input type="submit" value="Save" class="btn btn-primary" />
-			</div>
-		</form>
-	</div>
-</div>
+		<input type="hidden" asp-for="Recipe.Id" />
 
-<div>
-	<a asp-page="./Index">Back to List</a>
-</div>
+		<label asp-for="Recipe.Name">Nume</label>
+		<input asp-for="Recipe.Name" />
+		<span asp-validation-for="Recipe.Name" class="text-danger"></span>
+
+		<label asp-for="Recipe.Description">Descriere</label>
+		<textarea asp-for="Recipe.Description"></textarea>
+		<span asp-validation-for="Recipe.Description" class="text-danger"></span>
+
+		<label asp-for="Recipe.Stars">Nivel de dificultate (1-5)</label>
+		<input type="number" min="1" max="5" value="1" asp-for="Recipe.Stars" />
+		<span asp-validation-for="Recipe.Stars" class="text-danger"></span>
+
+		<label asp-for="Image">Imagine</label>
+		<input type="file" accept="image/*" asp-for="@Model.Image" />
+		<span asp-validation-for="@Model.Image" class="text-danger"></span>
+
+		<input type="submit" value="Save" />
+	</form>
+</section>
 
 @section Scripts {
 	@{

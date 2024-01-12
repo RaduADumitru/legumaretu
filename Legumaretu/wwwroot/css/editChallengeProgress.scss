@@ -1,0 +1,21 @@
+﻿@use "vars.scss";
+
+.editchallengeprogress {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    form {
+        display: flex;
+        flex-direction: column;
+        width: 30vw;
+        gap: 0.7em;
+
+        button {
+            align-self: flex-end;
+
+            @include vars.formButton;
+        }
+    }
+}

@@ -6,7 +6,7 @@ namespace Legumaretu.Models
 	public class Challenge
 	{
 		public int Id {  get; set; }
-		[Required]
+		[Required(ErrorMessage = "Numele provocării este obligatoriu!")]
         [StringLength(50)]
         public string Name { get; set; }
 		public string? Description { get; set; }

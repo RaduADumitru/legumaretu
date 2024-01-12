@@ -1,0 +1,81 @@
+﻿@page
+@model Legumaretu.Pages.YourChallengesModel
+@{
+}
+
+<section class="yourChallengesList">
+    @if (Model.Progresses.Count() == 0)
+    {
+        <p class="text-center">Nu te-ai înscris la nicio provocare! Intră în secțiunea de <a asp-page="/Challenges">provocări</a> pentru a putea face asta.</p>
+    }
+    else {
+        @foreach(var prog in Model.Progresses)
+	    {
+		    <article>
+                <div class="yourChallengesTitleDesc">
+                    <div>
+                        <h2>
+                            @prog.Challenge.Name
+                            @if (@prog.Challenge.Official)
+                            {
+                                <span class="fa-solid fa-circle-check" title="Provocare adăugată de moderatori"></span>
+                            }
+                        </h2>
+                        <p>@prog.Challenge.Description</p>
+                    </div>
+                    <div>
+                        <p title="Bonus pentru completarea provocării">Bonus: @Math.Floor((Decimal)(prog.Challenge.TotalPoints() / 4)) p</p>
+                        <p title="Nr. de rețete completate">@prog.ChTasks.Count(t => t.Done) / @prog.ChTasks.Count()</p>
+                        <p title="Punctajul total al provocării">@prog.Challenge.TotalPoints() p</p>
+                        <a asp-page="EditChallengeProgress" asp-route-id="@prog.Id"><i class="fa-solid fa-pen-to-square"></i> Modifică progresul</a>
+                        <a asp-page="GiveUpOnChallenge" asp-route-id="@prog.Id"><i class="fa-solid fa-xmark"></i> Renunță</a>
+                    </div>
+                </div>
+                <div class="yourChallengeRecipeList">
+                    @if (prog.Challenge.Recipes.Count() == 0)
+                    {
+                        <p class="text-center">Nu există rețete în această provocare :(.</p>
+                    }
+                    else
+                    {
+                        @foreach (var recipe in prog.Challenge.Recipes)
+                        {
+                            <div class="yourChallengeRecipe">
+                                <img src="@recipe.ImgLink" />
+                                <h3>
+                                    <a asp-page="/Recipe" asp-route-recipeId="@recipe.Id">@recipe.Name</a>
+                                    @if (@recipe.Official)
+                                    {
+                                        <span class="fa-solid fa-circle-check" title="Rețetă adăugată de moderatori"></span>
+                                    }
+                                </h3>
+                                <div>
+                                    @if(prog.ChTasks.Find(c => c.Recipe.Id == recipe.Id).Done)
+                                    {
+                                        <p style="background-color: green">
+                                            @for (int i = 0; i < @recipe.Stars; i++)
+                                            {
+                                                <i class="fa-solid fa-star"></i>
+                                            }
+                                        </p>
+                                        <p style="background-color: green">@(@recipe.Stars * 20) p</p>
+                                    }
+                                    else
+                                    {
+                                        <p style="background-color: red">
+                                            @for (int i = 0; i < @recipe.Stars; i++)
+                                            {
+                                                <i class="fa-solid fa-star"></i>
+                                            }
+                                        </p>
+                                        <p style="background-color: red">@(@recipe.Stars * 20) p</p>
+                                    }
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+		    </article>
+	    }
+    }
+</section>

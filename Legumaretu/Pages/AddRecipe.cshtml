@@ -1,5 +1,5 @@
 ﻿@page
-@model AddRecipeModel
+@model Legumaretu.Pages.AddRecipeModel
 @{
 }
 
@@ -19,8 +19,8 @@
 		<span asp-validation-for="Recipe.Stars" class="text-danger"></span>
 
 		<input type="file" accept="image/*" asp-for="@Model.Image" />
-	  <span asp-validation-for="@Model.Image" class="text-danger"></span>
+		<span asp-validation-for="@Model.Image" class="text-danger"></span>
 
-		<button>Submit</button>
+		<button>Adaugă</button>
 	</form>
 </section>

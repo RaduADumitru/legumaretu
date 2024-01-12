@@ -62,7 +62,7 @@ namespace Legumaretu.Pages
           _context.ChallengeProgresses.Add(ChallengeProgress);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./YourChallenges");
         }
     }
 }

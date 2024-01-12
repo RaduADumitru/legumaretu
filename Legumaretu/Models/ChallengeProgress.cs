@@ -1,4 +1,4 @@
-﻿using Legumaretu.Data;
+using Legumaretu.Data;
 
 namespace Legumaretu.Models;
 
@@ -20,5 +20,26 @@ public class ChallengeProgress
 			}
 		}
 		applicationDbContext.ChallengeProgresses.Remove(this);
+  }
+
+	public ChallengeProgress(int id, int challengeId, Challenge challenge, List<ChTask> chTasks)
+	{
+		Id = id; 
+		ChallengeId = challengeId;
+		Challenge = challenge; 
+		ChTasks = chTasks;
+	}
+
+	public ChallengeProgress() {  }
+
+	public bool Completed()
+	{
+		foreach(var chTask in ChTasks)
+		{
+			if (!chTask.Done)
+				return false;
+		}
+
+		return true;
 	}
 }
