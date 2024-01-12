@@ -84,7 +84,7 @@ namespace Legumaretu.Pages
 				}
 			}
 
-			return RedirectToPage("./Index");
+			return RedirectToPage("./YourChallenges");
 		}
 
 		private bool ChallengeProgressExists(int id)

@@ -2,6 +2,10 @@
 
 $menuh: 3em;
 
+.menuSelected {
+    color: vars.$color3 !important;
+}
+
 .menu {
     display: flex;
     justify-content: center;
@@ -46,7 +50,8 @@ $menuh: 3em;
             li {
                 align-self: center;
                 list-style: none;
-
+                font-weight: lighter;
+                    
                 @include vars.link;
             }
         }

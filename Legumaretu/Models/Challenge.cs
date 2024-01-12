@@ -34,16 +34,22 @@ namespace Legumaretu.Models
 		}
 
 		public Challenge(){}
+
 		public int TotalPoints()
 		{
 			int s = 0;
 
 			foreach(var recipe in Recipes)
 			{
-				s += recipe.Stars * 20;
+				s += recipe.getPoints();
 			}
 
 			return s;
+		}
+
+		public int CompletionBonus()
+		{
+			return TotalPoints() / 4;
 		}
 
 		public void Delete(ApplicationDbContext applicationDbContext)
