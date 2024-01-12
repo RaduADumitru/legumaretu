@@ -1,4 +1,8 @@
-﻿.menu {
+﻿.menuSelected {
+  color: #F56345 !important;
+}
+
+.menu {
   display: flex;
   justify-content: center;
   padding: 0 2em 0 2em;
@@ -38,6 +42,7 @@
 .menu nav > ul li {
   align-self: center;
   list-style: none;
+  font-weight: lighter;
 }
 .menu nav > ul li a {
   text-decoration: none;

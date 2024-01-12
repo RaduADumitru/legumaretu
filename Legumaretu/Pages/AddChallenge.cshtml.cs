@@ -71,7 +71,7 @@ namespace Legumaretu.Pages
             _context.Challenges.Add(Challenge);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("./Challenges");
         }
     }
 }

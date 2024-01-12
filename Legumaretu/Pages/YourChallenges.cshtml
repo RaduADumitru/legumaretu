@@ -24,7 +24,7 @@
                         <p>@prog.Challenge.Description</p>
                     </div>
                     <div>
-                        <p title="Bonus pentru completarea provocării">Bonus: @Math.Floor((Decimal)(prog.Challenge.TotalPoints() / 4)) p</p>
+                        <p title="Bonus pentru completarea provocării">Bonus: @prog.Challenge.CompletionBonus() p</p>
                         <p title="Nr. de rețete completate">@prog.ChTasks.Count(t => t.Done) / @prog.ChTasks.Count()</p>
                         <p title="Punctajul total al provocării">@prog.Challenge.TotalPoints() p</p>
                         <a asp-page="EditChallengeProgress" asp-route-id="@prog.Id"><i class="fa-solid fa-pen-to-square"></i> Modifică progresul</a>

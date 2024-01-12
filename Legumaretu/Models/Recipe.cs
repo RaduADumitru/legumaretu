@@ -30,6 +30,11 @@ namespace Legumaretu.Models
         }
         public Recipe() { }
 
+        public int getPoints()
+        {
+            return Stars * 20;
+        }
+
         public void Delete(ApplicationDbContext applicationDbContext)
         {
 	        if (ChTasks != null)

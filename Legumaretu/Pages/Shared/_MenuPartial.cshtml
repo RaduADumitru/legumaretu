@@ -1,47 +1,83 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using Legumaretu.Models
+@using Microsoft.EntityFrameworkCore
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
+@inject ApplicationDbContext Context
 
 <nav>
-    <ul>
-        @if(Model.GetType().Name == "IndexModel") {
-            <li><a asp-page="/Index">Rețete</a></li>
-        }
-        else
-        {
-            <li><a asp-page="/Index">Rețete</a></li>
-        }
+	<ul>
+		@if (Model.GetType().Name == "IndexModel")
+		{
+			<li><a asp-page="/Index" class="menuSelected">Rețete</a></li>
+		}
+		else
+		{
+			<li><a asp-page="/Index">Rețete</a></li>
+		}
 
-        @if(Model.GetType().Name == "ChallengesModel") {
-            <li><a asp-page="/Challenges">Provocări</a></li>
-        }
-        else
-        {
-            <li><a asp-page="/Challenges">Provocări</a></li>
-        }
+		@if (Model.GetType().Name == "ChallengesModel")
+		{
+			<li><a asp-page="/Challenges" class="menuSelected">Provocări</a></li>
+		}
+		else
+		{
+			<li><a asp-page="/Challenges">Provocări</a></li>
+		}
 
-        @if (SignInManager.IsSignedIn(User) && User.IsInRole("Default"))
-        {
-            @if (Model.GetType().Name == "YourChallengesModel")
-            {
-                <li><a asp-page="/YourChallenges">Progresul tău</a></li>
-            }
-            else
-            {
-                <li><a asp-page="/YourChallenges">Progresul tău</a></li>
-            }
-        }
-    </ul>
+		@if (SignInManager.IsSignedIn(User) && User.IsInRole("Default"))
+		{
+			@if (Model.GetType().Name == "YourChallengesModel")
+			{
+				<li><a asp-page="/YourChallenges" class="menuSelected">Progresul tău</a></li>
+			}
+			else
+			{
+				<li><a asp-page="/YourChallenges">Progresul tău</a></li>
+			}
+		}
+	</ul>
 </nav>
 @if (!SignInManager.IsSignedIn(User))
 {
-    <a asp-area="Identity" asp-page="/Account/Login">
-        <i class="fa-solid fa-user"></i>
-        <span>Logare</span>
-    </a>
+	<a asp-area="Identity" asp-page="/Account/Login">
+		<i class="fa-solid fa-user"></i>
+		<span>Logare</span>
+	</a>
 }
 else
 {
-    <a asp-area="Identity" asp-page="/Account/Logout">Delogare</a>
+	<div>
+		<i class="fa-solid fa-user-tie"></i>
+
+		@if (User.IsInRole("Default"))
+		{
+			<span>User</span>
+		}
+		@if (User.IsInRole("Moderator"))
+		{
+			<span>Moderator</span>
+		}
+		@if (User.IsInRole("Admin"))
+		{
+			<span>Admin</span>
+		}
+
+		@{
+			string userId = UserManager.GetUserAsync(User).Result.Id;
+			var user = Context.Users
+			.Include(u => u.ChallengeProgresses)
+			.ThenInclude(prog => prog.Challenge)
+			.ThenInclude(ch => ch.Recipes)
+			.Include(u => u.ChallengeProgresses)
+			.ThenInclude(prog => prog.ChTasks)
+			.ThenInclude(chTask => chTask.Recipe)
+			.Include(chTask => chTask.Challenges)
+			.ThenInclude(ch => ch.Recipes)
+			.FirstOrDefault(m => m.Id == userId);
+		}
+
+		<span>Oficiale: @user.getPoints(true)</span>
+		<span>Neoficiale: @user.getPoints(false)</span>
+	</div>
 }
