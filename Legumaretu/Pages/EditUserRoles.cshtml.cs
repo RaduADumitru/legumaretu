@@ -7,22 +7,22 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Legumaretu.Pages
 {
-    [Authorize(Roles = "Admin")]
-    public class EditUserRolesModel : PageModel
-    {
-	    [BindProperty(SupportsGet = true)]
-	    public string UserId { get; set; }
+	[Authorize(Roles = "Admin")]
+	public class EditUserRolesModel : PageModel
+	{
+		[BindProperty(SupportsGet = true)]
+		public string UserId { get; set; }
 
-	    public List<string> UserRoles { get; set; }
-	    public List<IdentityRole> AllRoles { get; set; }
+		public List<string> UserRoles { get; set; }
+		public List<IdentityRole> AllRoles { get; set; }
 		private readonly ILogger<IndexModel> _logger;
-        private readonly ApplicationDbContext _applicationDbContext;
-        private readonly UserManager<ApplicationUser> _userManager;
+		private readonly ApplicationDbContext _applicationDbContext;
+		private readonly UserManager<ApplicationUser> _userManager;
 		private readonly RoleManager<IdentityRole> _roleManager;
 
-        public EditUserRolesModel(ILogger<IndexModel> logger, ApplicationDbContext applicationDbContext,
-	        UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
-        {
+		public EditUserRolesModel(ILogger<IndexModel> logger, ApplicationDbContext applicationDbContext,
+			UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
+		{
 			_logger = logger;
 			_applicationDbContext = applicationDbContext;
 			_userManager = userManager;

@@ -5,12 +5,12 @@ namespace Legumaretu.Models
 {
 	public class Challenge
 	{
-		public int Id {  get; set; }
+		public int Id { get; set; }
 		[Required(ErrorMessage = "Numele provocării este obligatoriu!")]
-        [StringLength(50)]
-        public string Name { get; set; }
+		[StringLength(50)]
+		public string Name { get; set; }
 		public string? Description { get; set; }
-		public bool Official {  get; set; }
+		public bool Official { get; set; }
 		public virtual List<Recipe>? Recipes { get; set; }
 		public virtual List<ChallengeProgress>? ChallengeProgresses { get; set; }
 		public ApplicationUser? User { get; set; }
@@ -33,13 +33,13 @@ namespace Legumaretu.Models
 			Recipes = recipes;
 		}
 
-		public Challenge(){}
+		public Challenge() { }
 
 		public int TotalPoints()
 		{
 			int s = 0;
 
-			foreach(var recipe in Recipes)
+			foreach (var recipe in Recipes)
 			{
 				s += recipe.getPoints();
 			}

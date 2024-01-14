@@ -5,9 +5,9 @@
 
 <section class="addrecipe">
 	<h2>Adaugă o rețetă</h2>
-	<form method="post">
+	<form method="post" enctype="multipart/form-data">
 		<label>Nume</label>
-		<input asp-for="Recipe.Name"/>
+		<input asp-for="Recipe.Name" />
 		<span asp-validation-for="Recipe.Name" class="text-danger"></span>
 
 		<label>Descriere</label>
@@ -15,7 +15,7 @@
 		<span asp-validation-for="Recipe.Description" class="text-danger"></span>
 
 		<label>Nivel de dificultate (1-5)</label>
-		<input type="number" min="1" max="5" value="1" asp-for="Recipe.Stars"/>
+		<input type="number" min="1" max="5" value="1" asp-for="Recipe.Stars" />
 		<span asp-validation-for="Recipe.Stars" class="text-danger"></span>
 
 		<input type="file" accept="image/*" asp-for="@Model.Image" />

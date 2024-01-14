@@ -5,12 +5,12 @@
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 @{
-    ViewData["Title"] = "Rețete";
+	ViewData["Title"] = "Rețete";
 }
 
 @if (SignInManager.IsSignedIn(User))
 {
-    <a id="addrecipe" asp-page="/AddRecipe"><i class="fa-solid fa-plus"></i> Adaugă rețetă</a>
+	<a id="addrecipe" asp-page="/AddRecipe"><i class="fa-solid fa-plus"></i> Adaugă rețetă</a>
 }
 
 <script type="text/javascript" src="~/js/starFilter.js"></script>
@@ -75,6 +75,6 @@
                 </article>
             }
 
-        }
-    }
+		}
+	}
 </section>
