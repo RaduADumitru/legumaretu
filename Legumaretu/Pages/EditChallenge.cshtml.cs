@@ -13,81 +13,81 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Legumaretu.Pages
 {
-    [Authorize(Roles = "Default,Moderator,Admin")]
-    public class EditChallengeModel : PageModel
-    {
-        private readonly ILogger<IndexModel> _logger;
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly Legumaretu.Data.ApplicationDbContext _context;
+	[Authorize(Roles = "Default,Moderator,Admin")]
+	public class EditChallengeModel : PageModel
+	{
+		private readonly ILogger<IndexModel> _logger;
+		private readonly UserManager<ApplicationUser> _userManager;
+		private readonly Legumaretu.Data.ApplicationDbContext _context;
 
-        public EditChallengeModel(ILogger<IndexModel> logger, UserManager<ApplicationUser> userManager, ApplicationDbContext context)
-        {
-            _logger = logger;
-            _userManager = userManager;
-            _context = context;
-        }
+		public EditChallengeModel(ILogger<IndexModel> logger, UserManager<ApplicationUser> userManager, ApplicationDbContext context)
+		{
+			_logger = logger;
+			_userManager = userManager;
+			_context = context;
+		}
 
-        [BindProperty]
-        public Challenge Challenge { get; set; } = default!;
+		[BindProperty]
+		public Challenge Challenge { get; set; } = default!;
 
-        public async Task<IActionResult> OnGetAsync(int? id)
-        {
-            if (id == null || _context.Challenges == null)
-            {
-                return RedirectToPage("./Error");
+		public async Task<IActionResult> OnGetAsync(int? id)
+		{
+			if (id == null || _context.Challenges == null)
+			{
+				return RedirectToPage("./Error");
 			}
 
-            var challenge =  await _context.Challenges.Include(x => x.User).FirstOrDefaultAsync(m => m.Id == id);
-            if (challenge == null)
-            {
-                return RedirectToPage("./Error");
+			var challenge = await _context.Challenges.Include(x => x.User).FirstOrDefaultAsync(m => m.Id == id);
+			if (challenge == null)
+			{
+				return RedirectToPage("./Error");
 			}
-            Challenge = challenge;
-            // Default users can only edit their own challenges
-            if (!User.IsInRole("Admin") && !User.IsInRole("Moderator"))
-            {
-                ApplicationUser user = _userManager.GetUserAsync(User).Result;
-                if (user == null || challenge.User.Id != user.Id)
-                {
-                    return RedirectToPage("./Error");
+			Challenge = challenge;
+			// Default users can only edit their own challenges
+			if (!User.IsInRole("Admin") && !User.IsInRole("Moderator"))
+			{
+				ApplicationUser user = _userManager.GetUserAsync(User).Result;
+				if (user == null || challenge.User.Id != user.Id)
+				{
+					return RedirectToPage("./Error");
 				}
-            }
-            return Page();
-        }
+			}
+			return Page();
+		}
 
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see https://aka.ms/RazorPagesCRUD.
-        public async Task<IActionResult> OnPostAsync()
-        {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+		// To protect from overposting attacks, enable the specific properties you want to bind to.
+		// For more details, see https://aka.ms/RazorPagesCRUD.
+		public async Task<IActionResult> OnPostAsync()
+		{
+			if (!ModelState.IsValid)
+			{
+				return Page();
+			}
 
-            _context.Attach(Challenge).State = EntityState.Modified;
+			_context.Attach(Challenge).State = EntityState.Modified;
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ChallengeExists(Challenge.Id))
-                {
-                    return RedirectToPage("./Error");
+			try
+			{
+				await _context.SaveChangesAsync();
+			}
+			catch (DbUpdateConcurrencyException)
+			{
+				if (!ChallengeExists(Challenge.Id))
+				{
+					return RedirectToPage("./Error");
 				}
-                else
-                {
-                    throw;
-                }
-            }
+				else
+				{
+					throw;
+				}
+			}
 
-            return RedirectToPage("./Challenges");
-        }
+			return RedirectToPage("./Challenges");
+		}
 
-        private bool ChallengeExists(int id)
-        {
-          return (_context.Challenges?.Any(e => e.Id == id)).GetValueOrDefault();
-        }
-    }
+		private bool ChallengeExists(int id)
+		{
+			return (_context.Challenges?.Any(e => e.Id == id)).GetValueOrDefault();
+		}
+	}
 }

@@ -12,8 +12,8 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Legumaretu.Pages
 {
-	[Authorize(Roles = "Default,Moderator,Admin")]
-	public class GiveUpOnChallengeModel : PageModel
+    [Authorize(Roles = "Default,Moderator,Admin")]
+    public class GiveUpOnChallengeModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
         private readonly Legumaretu.Data.ApplicationDbContext _context;
@@ -27,7 +27,7 @@ namespace Legumaretu.Pages
         }
 
         [BindProperty]
-      public ChallengeProgress ChallengeProgress { get; set; } = default!;
+        public ChallengeProgress ChallengeProgress { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -41,19 +41,19 @@ namespace Legumaretu.Pages
             if (challengeprogress == null)
             {
                 return RedirectToPage("./Error");
-			}
-            else 
+            }
+            else
             {
                 ChallengeProgress = challengeprogress;
                 // Default users can only edit their own challenge progresses
                 if (!User.IsInRole("Admin") && !User.IsInRole("Moderator"))
                 {
-					ApplicationUser user = _userManager.GetUserAsync(User).Result;
-					if (user == null || challengeprogress.User.Id != user.Id)
-					{
-						return RedirectToPage("./Error");
-					}
-				}
+                    ApplicationUser user = _userManager.GetUserAsync(User).Result;
+                    if (user == null || challengeprogress.User.Id != user.Id)
+                    {
+                        return RedirectToPage("./Error");
+                    }
+                }
             }
             return Page();
         }
@@ -63,7 +63,7 @@ namespace Legumaretu.Pages
             if (id == null || _context.ChallengeProgresses == null)
             {
                 return RedirectToPage("./Error");
-			}
+            }
             var challengeprogress = await _context.ChallengeProgresses.Include(x => x.ChTasks).FirstOrDefaultAsync(m => m.Id == id);
 
             if (challengeprogress != null)

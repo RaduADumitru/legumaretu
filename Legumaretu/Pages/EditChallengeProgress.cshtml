@@ -2,36 +2,38 @@
 @model Legumaretu.Pages.EditChallengeProgressModel
 
 @{
-    ViewData["Title"] = "Modifică progresul";
-    Layout = "~/Pages/Shared/_Layout.cshtml";
+	ViewData["Title"] = "Modifică progresul";
+	Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
 <section class="editchallengeprogress">
 	<h2>Modifică progresul</h2>
 	<p>"Bifează" mai jos rețetele pe care le-ai terminat</p>
-    <form method="post">
-	    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-	    <input type="hidden" asp-for="@Model.ChallengeProgress.Id" />
+	<form method="post">
+		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+		<input type="hidden" asp-for="@Model.ChallengeProgress.Id" />
 
 		<h3>Rețete din provocare</h3>
 		@for (var i = 0; i < Model.ChallengeProgress.ChTasks.Count; i++)
 		{
 			<label>
 				<input type="hidden" asp-for="@Model.ChallengeProgress.ChTasks[i].Id" />
-				<input type="checkbox" asp-for="@Model.ChallengeProgress.ChTasks[i].Done"/>
+				<input type="checkbox" asp-for="@Model.ChallengeProgress.ChTasks[i].Done" />
 				<input type="hidden" asp-for="@Model.ChallengeProgress.ChTasks[i].Recipe.Id" />
 				<input type="hidden" asp-for="@Model.ChallengeProgress.ChTasks[i].Recipe.Name" />
 				<input type="hidden" asp-for="@Model.ChallengeProgress.ChTasks[i].Recipe.Stars" />
-        <input type="hidden" asp-for="@Model.ChallengeProgress.ChTasks[i].Recipe.Description" />
-        <input type="hidden" asp-for="@Model.ChallengeProgress.ChTasks[i].Recipe.ImgLink" />
+				<input type="hidden" asp-for="@Model.ChallengeProgress.ChTasks[i].Recipe.Description" />
+				<input type="hidden" asp-for="@Model.ChallengeProgress.ChTasks[i].Recipe.ImgLink" />
 				@Model.ChallengeProgress.ChTasks[i].Recipe.Name
 			</label>
 		}
 
 		<button type="submit">Modifică</button>
-    </form>
+	</form>
 </section>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
 }

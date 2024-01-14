@@ -20,21 +20,21 @@ public class ChallengeProgress
 			}
 		}
 		applicationDbContext.ChallengeProgresses.Remove(this);
-  }
+	}
 
 	public ChallengeProgress(int id, int challengeId, Challenge challenge, List<ChTask> chTasks)
 	{
-		Id = id; 
+		Id = id;
 		ChallengeId = challengeId;
-		Challenge = challenge; 
+		Challenge = challenge;
 		ChTasks = chTasks;
 	}
 
-	public ChallengeProgress() {  }
+	public ChallengeProgress() { }
 
 	public bool Completed()
 	{
-		foreach(var chTask in ChTasks)
+		foreach (var chTask in ChTasks)
 		{
 			if (!chTask.Done)
 				return false;
