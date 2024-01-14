@@ -16,9 +16,21 @@ namespace Legumaretu.Pages
             _context = context;
         }
 
-        public void OnGet()
-        {
-            Recipes = _context.Recipes.ToList();
+        public void OnGet(string searchStr, string starFilter)
+		{
+			if (!String.IsNullOrEmpty(searchStr))
+			{
+				searchStr = searchStr.Trim().ToLower();
+				Recipes = _context.Recipes.Where(r => r.Name.Trim().ToLower().Contains(searchStr)).ToList();
+			}
+			else if (!String.IsNullOrEmpty(starFilter)) 
+			{
+                Recipes = _context.Recipes.Where(r => r.Stars == int.Parse(starFilter)).ToList();
+            }
+			else
+			{
+				Recipes = _context.Recipes.ToList();
+			}
         }
-    }
+	}
 }

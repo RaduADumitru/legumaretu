@@ -87,3 +87,26 @@
   box-shadow: 12px 12px 15px -5px #F54545;
   color: #F56345;
 }
+
+.starfilter {
+  float: left;
+}
+.starfilter span {
+  float: right;
+  position: relative;
+}
+.starfilter span input {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  opacity: 0;
+}
+.starfilter span input:hover {
+  cursor: pointer;
+}
+.starfilter span label {
+  display: inline-block;
+}
+.starfilter span:hover ~ span label, .starfilter span:hover label, .starfilter span.checked label, .starfilter span.checked ~ span label {
+  color: gold;
+}

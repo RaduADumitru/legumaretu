@@ -1,0 +1,54 @@
+﻿@use "vars.scss";
+
+.searchfilter {
+    margin: 0 vars.$pagemargins 2em vars.$pagemargins;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+
+    button {
+        @include vars.formButton;
+    }
+
+    > * {
+        display: flex;
+        justify-content: center;
+        gap: 1em;
+
+        > * {
+            align-self: center;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        span {
+            font-size: 1.5em;
+        }
+    }
+}
+
+.pointsearch {
+    input {
+        appearance: none;
+        background: vars.$color5; /* Grey background */
+        border-radius: vars.$radius;
+
+        &::-webkit-slider-thumb, &::-moz-range-thumb {
+            appearance: none;
+            background: vars.$color2;
+            cursor: pointer;
+        }
+    }
+
+    span {
+        font-size: 1.3em;
+    }
+
+    output {
+        font-size: 1.3em;
+        font-weight: bolder;
+        color: vars.$color5;
+    }
+}
