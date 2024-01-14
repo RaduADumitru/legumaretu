@@ -47,37 +47,42 @@
 }
 else
 {
-	<div>
-		<i class="fa-solid fa-user-tie"></i>
+	<div id="superMenuUserArea">
+		<div id="menuUserArea">
+			<div>
+				<i class="fa-solid fa-user-tie"></i>
+				@if (User.IsInRole("Default"))
+				{
+					<span>User</span>
+				}
+				@if (User.IsInRole("Moderator"))
+				{
+					<span>Moderator</span>
+				}
+				@if (User.IsInRole("Admin"))
+				{
+					<span>Admin</span>
+				}
+			</div>
+			<div>
+				@{
+					string userId = UserManager.GetUserAsync(User).Result.Id;
+					var user = Context.Users
+					.Include(u => u.ChallengeProgresses)
+					.ThenInclude(prog => prog.Challenge)
+					.ThenInclude(ch => ch.Recipes)
+					.Include(u => u.ChallengeProgresses)
+					.ThenInclude(prog => prog.ChTasks)
+					.ThenInclude(chTask => chTask.Recipe)
+					.Include(chTask => chTask.Challenges)
+					.ThenInclude(ch => ch.Recipes)
+					.FirstOrDefault(m => m.Id == userId);
+				}
 
-		@if (User.IsInRole("Default"))
-		{
-			<span>User</span>
-		}
-		@if (User.IsInRole("Moderator"))
-		{
-			<span>Moderator</span>
-		}
-		@if (User.IsInRole("Admin"))
-		{
-			<span>Admin</span>
-		}
-
-		@{
-			string userId = UserManager.GetUserAsync(User).Result.Id;
-			var user = Context.Users
-			.Include(u => u.ChallengeProgresses)
-			.ThenInclude(prog => prog.Challenge)
-			.ThenInclude(ch => ch.Recipes)
-			.Include(u => u.ChallengeProgresses)
-			.ThenInclude(prog => prog.ChTasks)
-			.ThenInclude(chTask => chTask.Recipe)
-			.Include(chTask => chTask.Challenges)
-			.ThenInclude(ch => ch.Recipes)
-			.FirstOrDefault(m => m.Id == userId);
-		}
-
-		<span>Oficiale: @user.getPoints(true)</span>
-		<span>Neoficiale: @user.getPoints(false)</span>
+				<span title="Puncte oficiale">@user.getPoints(true)p <i class="fa-regular fa-circle-check"></i> </span>
+				<span title="Puncte neoficiale">@user.getPoints(false)p <i class="fa-solid fa-kitchen-set"></i></span>
+			</div>
+		</div>
+		<a asp-area="Identity" asp-page="/Account/Logout"><i class="fa-solid fa-right-from-bracket"></i> Delogare</a>
 	</div>
 }

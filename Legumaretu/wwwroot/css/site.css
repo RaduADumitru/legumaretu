@@ -72,6 +72,50 @@
   height: fit-content;
 }
 
+#menuUserArea {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5em;
+  height: 6em;
+  width: 10vw;
+  border-radius: 20px;
+  box-shadow: -19px 11px 15px 0px #F58344, 11px -10px 15px 0px #F54545;
+  transition: box-shadow 0.2s ease;
+}
+#menuUserArea > div {
+  align-self: center;
+  display: flex;
+  gap: 0.5em;
+}
+#menuUserArea > div > * {
+  align-self: center;
+}
+#menuUserArea:hover {
+  box-shadow: -19px -11px 15px 0px #F58344, 11px 10px 15px 0px #F54545;
+}
+
+#superMenuUserArea {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+}
+#superMenuUserArea a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46);
+}
+#superMenuUserArea a:hover {
+  color: #F56345;
+}
+#superMenuUserArea a {
+  align-self: center;
+  text-align: center;
+  width: 7vw;
+  background: black;
+  border-radius: 0 0 20px 20px;
+}
+
 .recipe {
   display: flex;
   flex-direction: column;
@@ -622,10 +666,18 @@
 }
 
 .searchfilter {
-  margin: 0 15vw 2em 15vw;
+  margin: 0 15vw 4em 15vw;
   display: flex;
   flex-direction: column;
   gap: 2em;
+  border: 1px solid white;
+  border-radius: 20px;
+  padding: 2em;
+  box-shadow: -11px 0px 15px 0px #F5BA45;
+  transition: box-shadow ease 0.2s;
+}
+.searchfilter:hover {
+  box-shadow: -21px 0px 15px 0px #F5BA45;
 }
 .searchfilter button {
   width: 10em;

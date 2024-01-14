@@ -1,10 +1,19 @@
 ﻿@use "vars.scss";
 
 .searchfilter {
-    margin: 0 vars.$pagemargins 2em vars.$pagemargins;
+    margin: 0 vars.$pagemargins 4em vars.$pagemargins;
     display: flex;
     flex-direction: column;
     gap: 2em;
+    border: 1px solid vars.$secbg;
+    border-radius: vars.$radius;
+    padding: 2em;
+    box-shadow: -11px 0px vars.$fuzz 0px vars.$color5;
+    transition: box-shadow ease vars.$timing;
+
+    &:hover {
+        box-shadow: -21px 0px vars.$fuzz 0px vars.$color5;
+    }
 
     button {
         @include vars.formButton;
