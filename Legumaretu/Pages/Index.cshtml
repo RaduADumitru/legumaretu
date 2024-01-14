@@ -6,15 +6,6 @@
 @inject UserManager<ApplicationUser> UserManager
 @{
     ViewData["Title"] = "Rețete";
-
-    bool noOfficial = true;
-    foreach (var recipe in Model.Recipes)
-    {
-        if (recipe.Official)
-        {
-            noOfficial = false;
-        }
-    }
 }
 
 @if (SignInManager.IsSignedIn(User))
@@ -22,11 +13,35 @@
     <a id="addrecipe" asp-page="/AddRecipe"><i class="fa-solid fa-plus"></i> Adaugă rețetă</a>
 }
 
+<script type="text/javascript" src="~/js/starFilter.js"></script>
+
+<section class="searchfilter">
+    <form asp-page="./Index" method="get">
+        <p>Caută o rețetă</p>
+        <input type="text" name="searchStr" placeholder="Numele rețetei..."/>
+        <button type="submit">Caută</button>
+    </form>
+    <form asp-page="./Index" method="get">
+        <p>Filtrează după dificultate</p>
+        <div class="starfilter">
+            @for (int i = 0; i < 5; i++)
+            {
+                <span>
+                    <input type="radio" name="starFilter" id="star-@i" value="@(5-i)" />
+                    <label for="star-@i"><i class="fa-solid fa-star"></i></label>
+                </span>
+            }
+        </div>
+        <button type="submit">Filtrează</button>
+    </form>
+</section>
+
 <section class="recipeList">
-    @if (Model.Recipes.Count() == 0 || noOfficial)
+    @if (Model.Recipes.Count() == 0 || (!SignInManager.IsSignedIn(User) && !Model.Recipes.Exists(e => e.Official)))
     {
         <p class="text-center">Nu există nicio rețetă :(</p>
-    } else
+    }
+    else
     {
         @foreach(var recipe in Model.Recipes)
         {

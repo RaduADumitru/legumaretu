@@ -62,5 +62,9 @@
   {
     "outputFile": "wwwroot/css/giveUpOnChallenge.css",
     "inputFile": "wwwroot/css/giveUpOnChallenge.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/searchFilter.css",
+    "inputFile": "wwwroot/css/searchFilter.scss"
   }
 ]

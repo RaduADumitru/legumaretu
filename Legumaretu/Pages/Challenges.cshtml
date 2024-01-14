@@ -6,15 +6,6 @@
 @inject UserManager<ApplicationUser> UserManager
 @{
     ViewData["Title"] = "Provocări";
-
-    bool noOfficial = true;
-    foreach(var challenge in Model.Challenges)
-    {
-        if(challenge.Official)
-        {
-            noOfficial = false;
-        }
-    }
 }
 
 @if (SignInManager.IsSignedIn(User))
@@ -23,8 +14,24 @@
     <a id="signupforchallenge" asp-page="/SignUpForChallenge"><i class="fa-solid fa-plus"></i> Înscriere provocări</a>
 }
 
+<section class="searchfilter">
+    <form asp-page="./Challenges" method="get">
+        <p>Caută o provocare</p>
+        <input type="text" name="searchStr" placeholder="Numele provocării..." />
+        <button type="submit">Caută</button>
+    </form>
+    <form asp-page="./Challenges" method="get" class="pointsearch">
+        <p>Filtrează după nr. de puncte</p>
+        <span>@Model.MinPoints</span>
+        <input type="range" name="filterValue" min="@Model.MinPoints" max="@Model.MaxPoints" oninput="showPoints.value = this.value" />
+        <span>@Model.MaxPoints</span>
+        <output name="showPoints"></output>
+        <button type="submit">Filtrează</button>
+    </form>
+</section>
+
 <section class="challengesList">
-    @if (Model.Challenges.Count() == 0 || noOfficial)
+    @if (Model.Challenges.Count() == 0 || (!SignInManager.IsSignedIn(User) && !Model.Challenges.Exists(e => e.Official)))
     {
         <p class="text-center">Nu există provocări :(</p>
     }

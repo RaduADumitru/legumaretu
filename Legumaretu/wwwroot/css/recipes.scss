@@ -95,3 +95,31 @@
         color: vars.$color3;
     }
 }
+
+.starfilter {
+    float: left;
+
+    span {
+        float: right;
+        position: relative;
+
+        input {
+            position: absolute;
+            top: 3px;
+            left: 0;
+            opacity: 0;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        label {
+            display: inline-block;
+        }
+
+        &:hover ~ span label, &:hover label, &.checked label, &.checked ~ span label {
+            color: gold;
+        }
+    }
+}

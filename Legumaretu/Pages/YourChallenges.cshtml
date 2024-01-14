@@ -1,7 +1,24 @@
 ﻿@page
 @model Legumaretu.Pages.YourChallengesModel
 @{
+    ViewData["Title"] = "Progresul tău";
 }
+
+<section class="searchfilter">
+    <form asp-page="./YourChallenges" method="get">
+        <p>Caută o provocare</p>
+        <input type="text" name="searchStr" placeholder="Numele provocării..." />
+        <button type="submit">Caută</button>
+    </form>
+    <form asp-page="./YourChallenges" method="get" class="pointsearch">
+        <p>Filtrează după nr. de puncte</p>
+        <span>@Model.MinPoints</span>
+        <input type="range" name="filterValue" min="@Model.MinPoints" max="@Model.MaxPoints" oninput="showPoints.value = this.value" />
+        <span>@Model.MaxPoints</span>
+        <output name="showPoints"></output>
+        <button type="submit">Filtrează</button>
+    </form>
+</section>
 
 <section class="yourChallengesList">
     @if (Model.Progresses.Count() == 0)
