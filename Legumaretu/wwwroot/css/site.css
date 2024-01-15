@@ -871,6 +871,75 @@
   list-style: none;
 }
 
+.users article {
+  margin: 0 15vw 2em 15vw;
+  text-align: center;
+}
+.users article > div {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 2em;
+}
+.users article > div > * {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid white;
+  border-radius: 20px;
+  width: 20vw;
+  padding: 1em;
+}
+.users article > div > * h3 {
+  color: #F5A145;
+}
+.users article > div > * ul {
+  text-align: left;
+}
+.users article a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46);
+}
+.users article a:hover {
+  color: #F56345;
+}
+
+.editusers {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.editusers form {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  gap: 2em;
+}
+.editusers form button {
+  align-self: flex-end;
+  width: 10em;
+  background: black;
+  padding: 0.5em;
+  text-align: center;
+  color: white;
+  border: 1px solid white;
+  border-radius: 15px;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46);
+  box-shadow: 8px 8px 15px -5px #F54545;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46), box-shadow 0.2s ease;
+}
+.editusers form button:hover {
+  color: #F56345;
+}
+.editusers form button:hover {
+  box-shadow: 12px 12px 15px -5px #F54545;
+  color: #F56345;
+}
+.editusers form > div {
+  display: flex;
+  justify-content: space-between;
+}
+
 h1 {
   color: white;
   transition: color 0.2s ease;

@@ -36,6 +36,18 @@
 				<li><a asp-page="/YourChallenges">Progresul tău</a></li>
 			}
 		}
+
+		@if (SignInManager.IsSignedIn(User) && (User.IsInRole("Moderator") || User.IsInRole("Admin")))
+		{
+			@if (Model.GetType().Name == "UsersModel")
+			{
+				<li><a asp-page="/Users" class="menuSelected">Utilizatori</a></li>
+			}
+			else
+			{
+				<li><a asp-page="/Users">Utilizatori</a></li>
+			}
+		}
 	</ul>
 </nav>
 @if (!SignInManager.IsSignedIn(User))
@@ -79,8 +91,11 @@ else
 					.FirstOrDefault(m => m.Id == userId);
 				}
 
-				<span title="Puncte oficiale">@user.getPoints(true)p <i class="fa-regular fa-circle-check"></i> </span>
-				<span title="Puncte neoficiale">@user.getPoints(false)p <i class="fa-solid fa-kitchen-set"></i></span>
+				@if (User.IsInRole("Default"))
+				{
+					<span title="Puncte oficiale">@user.getPoints(true)p <i class="fa-regular fa-circle-check"></i> </span>
+					<span title="Puncte neoficiale">@user.getPoints(false)p <i class="fa-solid fa-kitchen-set"></i></span>
+				}
 			</div>
 		</div>
 		<a asp-area="Identity" asp-page="/Account/Logout"><i class="fa-solid fa-right-from-bracket"></i> Delogare</a>

@@ -1,0 +1,26 @@
+﻿@use "vars.scss";
+
+.editusers {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    form {
+        display: flex;
+        flex-direction: column;
+        width: 30vw;
+        gap: 2em;
+
+        button {
+            align-self: flex-end;
+
+            @include vars.formButton;
+        }
+
+        > div {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}

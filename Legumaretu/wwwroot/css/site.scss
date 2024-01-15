@@ -14,6 +14,8 @@
 @use "login.scss";
 @use "logout.scss";
 @use "register.scss";
+@use "users.scss";
+@use "editUsers.scss";
 
 h1 {
     color: vars.$textcol;

@@ -5,25 +5,23 @@
 @inject UserManager<ApplicationUser> UserManager
 @inject RoleManager<IdentityRole> RoleManager
 
-<h1>Edit User Roles</h1>
-
-<form method="post">
-	<div>
-		<label asp-for="UserId"></label>
-		<input asp-for="UserId" readonly />
-	</div>
-
-	<div>
-		<label>Select Roles</label>
-		@foreach (var role in Model.AllRoles)
-		{
-			<div>
-				<input type="checkbox" id="@role.Name" name="selectedRoles"
-					   value="@role.Name" @(Model.UserRoles.Contains(role.Name) ? "checked" : "") />
-				<label for="@role.Name">@role.Name</label>
-			</div>
-		}
-	</div>
-
-	<button type="submit">Update Roles</button>
-</form>
+<section class="editusers">
+	<form method="post">
+		<div>
+			<label asp-for="UserId">ID-ul utilizatorului</label>
+			<input asp-for="UserId" readonly />
+		</div>
+		<div>
+			<label>Selectează rolurile</label>
+			@foreach (var role in Model.AllRoles)
+			{
+				<div>
+					<input type="radio" id="@role.Name" name="selectedRoles"
+						   value="@role.Name" @(Model.UserRoles.Contains(role.Name) ? "checked" : "") />
+					<label for="@role.Name">@role.Name</label>
+				</div>
+			}
+		</div>
+		<button type="submit">Modifică rolurile</button>
+	</form>
+</section>
