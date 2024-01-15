@@ -1,23 +1,28 @@
 using Legumaretu.Data;
 using Legumaretu.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
 namespace Legumaretu.Pages
 {
-    public class YourChallengesModel : PageModel
+	[Authorize(Roles = "Default,Moderator,Admin")]
+	public class YourChallengesModel : PageModel
     {
         private readonly ILogger<YourChallengesModel> _logger;
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<ApplicationUser> _userManager;
         public List<ChallengeProgress> Progresses { get; set; }
         public int MinPoints { get; set; }
         public int MaxPoints { get; set; }
 
-        public YourChallengesModel(ILogger<YourChallengesModel> logger, ApplicationDbContext context)
+        public YourChallengesModel(ILogger<YourChallengesModel> logger, ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
             _logger = logger;
             _context = context;
+            _userManager = userManager;
 
             if (_context.Challenges.Include(c => c.Recipes).ToList().Count() != 0)
             {
@@ -36,25 +41,29 @@ namespace Legumaretu.Pages
             if (!String.IsNullOrEmpty(searchStr))
             {
                 searchStr = searchStr.Trim().ToLower();
-                Progresses = _context.ChallengeProgresses.Include(p => p.Challenge).Include(p => p.ChTasks).Include(p => p.Challenge.Recipes).Where(c => c.Challenge.Name.Trim().ToLower().Contains(searchStr)).ToList();
+                Progresses = _context.ChallengeProgresses.Include(p => p.User).Include(p => p.Challenge).Include(p => p.ChTasks).Include(p => p.Challenge.Recipes).Where(c => c.Challenge.Name.Trim().ToLower().Contains(searchStr)).ToList();
             }
             else if (!String.IsNullOrEmpty(filterValue)) {
                 int value = int.Parse(filterValue);
-                Progresses = _context.ChallengeProgresses.Include(p => p.Challenge).Include(p => p.ChTasks).Include(p => p.Challenge.Recipes).AsEnumerable().Where(c => c.Challenge.TotalPoints() <= value).ToList();
+                Progresses = _context.ChallengeProgresses.Include(p => p.User).Include(p => p.Challenge).Include(p => p.ChTasks).Include(p => p.Challenge.Recipes).AsEnumerable().Where(c => c.Challenge.TotalPoints() <= value).ToList();
             }
             else
             {
-                Progresses = _context.ChallengeProgresses.Include(p => p.Challenge).Include(p => p.ChTasks).Include(p => p.Challenge.Recipes).ToList();
+                Progresses = _context.ChallengeProgresses.Include(p => p.User).Include(p => p.Challenge).Include(p => p.ChTasks).Include(p => p.Challenge.Recipes).ToList();
             }
-
-			if (sortOrder == "desc")
-			{
-				Progresses = Progresses.OrderByDescending(p => p.Challenge.Name).ToList();
-			}
-			else if (sortOrder == "asc")
-			{
-				Progresses = Progresses.OrderBy(p => p.Challenge.Name).ToList();
-			}
-		}
+            
+            // show only your own challenge progresses
+            String userId = _userManager.GetUserId(User);
+            Progresses = Progresses.Where(p => p.User.Id == userId).ToList();
+            
+            if (sortOrder == "desc")
+            {
+              Progresses = Progresses.OrderByDescending(p => p.Challenge.Name).ToList();
+            }
+            else if (sortOrder == "asc")
+            {
+              Progresses = Progresses.OrderBy(p => p.Challenge.Name).ToList();
+            }
+        }
     }
 }

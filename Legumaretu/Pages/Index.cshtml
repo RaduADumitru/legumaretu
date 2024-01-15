@@ -1,4 +1,4 @@
-﻿@page
+@page
 @model IndexModel
 @using Microsoft.AspNetCore.Identity
 @using Legumaretu.Models
@@ -16,36 +16,24 @@
 <script type="text/javascript" src="~/js/starFilter.js"></script>
 
 <section class="searchfilter">
-    <form asp-page="./Index" method="get">
-        <p>Caută o rețetă</p>
-        <input type="text" name="searchStr" placeholder="Numele rețetei..."/>
-        <button type="submit">Caută</button>
-    </form>
-    <form asp-page="./Index" method="get">
-        <p>Filtrează după dificultate</p>
-        <div class="starfilter">
-            @for (int i = 0; i < 5; i++)
-            {
-                <span>
-                    <input type="radio" name="starFilter" id="star-@i" value="@(5-i)" />
-                    <label for="star-@i"><i class="fa-solid fa-star"></i></label>
-                </span>
-            }
-        </div>
-        <button type="submit">Filtrează</button>
-    </form>
-    <form asp-page="./Index" method="get">
-        <p>Sortează rețetele</p>
-        <label>
-            Crescător
-            <input type="radio" name="sortOrder" value="asc" />
-        </label>
-        <label>
-            Descrescător
-            <input type="radio" name="sortOrder" value="desc" />
-        </label>
-        <button type="submit">Sortează</button>
-    </form>
+	<form asp-page="./Index" method="get">
+		<p>Caută o rețetă</p>
+		<input type="text" name="searchStr" placeholder="Numele rețetei..." />
+		<button type="submit">Caută</button>
+	</form>
+	<form asp-page="./Index" method="get">
+		<p>Filtrează după dificultate</p>
+		<div class="starfilter">
+			@for (int i = 0; i < 5; i++)
+			{
+				<span>
+					<input type="radio" name="starFilter" id="star-@i" value="@(5-i)" />
+					<label for="star-@i"><i class="fa-solid fa-star"></i></label>
+				</span>
+			}
+		</div>
+		<button type="submit">Filtrează</button>
+	</form>
 </section>
 
 <section class="recipeList">
