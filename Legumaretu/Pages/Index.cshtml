@@ -16,64 +16,64 @@
 <script type="text/javascript" src="~/js/starFilter.js"></script>
 
 <section class="searchfilter">
-    <form asp-page="./Index" method="get">
-        <p>Caută o rețetă</p>
-        <input type="text" name="searchStr" placeholder="Numele rețetei..."/>
-        <button type="submit">Caută</button>
-    </form>
-    <form asp-page="./Index" method="get">
-        <p>Filtrează după dificultate</p>
-        <div class="starfilter">
-            @for (int i = 0; i < 5; i++)
-            {
-                <span>
-                    <input type="radio" name="starFilter" id="star-@i" value="@(5-i)" />
-                    <label for="star-@i"><i class="fa-solid fa-star"></i></label>
-                </span>
-            }
-        </div>
-        <button type="submit">Filtrează</button>
-    </form>
+	<form asp-page="./Index" method="get">
+		<p>Caută o rețetă</p>
+		<input type="text" name="searchStr" placeholder="Numele rețetei..." />
+		<button type="submit">Caută</button>
+	</form>
+	<form asp-page="./Index" method="get">
+		<p>Filtrează după dificultate</p>
+		<div class="starfilter">
+			@for (int i = 0; i < 5; i++)
+			{
+				<span>
+					<input type="radio" name="starFilter" id="star-@i" value="@(5-i)" />
+					<label for="star-@i"><i class="fa-solid fa-star"></i></label>
+				</span>
+			}
+		</div>
+		<button type="submit">Filtrează</button>
+	</form>
 </section>
 
 <section class="recipeList">
-    @if (Model.Recipes.Count() == 0 || (!SignInManager.IsSignedIn(User) && !Model.Recipes.Exists(e => e.Official)))
-    {
-        <p class="text-center">Nu există nicio rețetă :(</p>
-    }
-    else
-    {
-        @foreach(var recipe in Model.Recipes)
-        {
-            @if ((!SignInManager.IsSignedIn(User) && recipe.Official) || SignInManager.IsSignedIn(User))
-            {
-                <article>
-                    <h2>
-                        <a asp-page="/Recipe" asp-route-recipeId="@recipe.Id">@recipe.Name</a>
-                        @if(recipe.Official)
-                        {
-                            <span class="fa-solid fa-circle-check" title="Rețetă adăugată de moderatori"></span>
-                        }
-                    </h2>
-                    <div class="recipeContent">
-                        <img src="@recipe.ImgLink"/>
-                        <pre>@recipe.Description</pre>
-                    </div>
-                    <div class="recipeStats">
-                        @if (SignInManager.IsSignedIn(User) && !User.IsInRole("Default"))
-                        {
-                            <a id="editRecipe" asp-page="/EditRecipe" asp-route-id="@recipe.Id"><i class="fa-solid fa-pen"></i></a>
-                        }
-                        <p>
-                            @for(int i = 0; i < recipe.Stars; i++)
-                            {
-                                <i class ="fa-solid fa-star"></i>
-                            }
-                        </p>
-                        <p>@(recipe.Stars * 20) p</p>
-                    </div>
-                </article>
-            }
+	@if (Model.Recipes.Count() == 0 || (!SignInManager.IsSignedIn(User) && !Model.Recipes.Exists(e => e.Official)))
+	{
+		<p class="text-center">Nu există nicio rețetă :(</p>
+	}
+	else
+	{
+		@foreach (var recipe in Model.Recipes)
+		{
+			@if ((!SignInManager.IsSignedIn(User) && recipe.Official) || SignInManager.IsSignedIn(User))
+			{
+				<article>
+					<h2>
+						<a asp-page="/Recipe" asp-route-recipeId="@recipe.Id">@recipe.Name</a>
+						@if (recipe.Official)
+						{
+							<span class="fa-solid fa-circle-check" title="Rețetă adăugată de moderatori"></span>
+						}
+					</h2>
+					<div class="recipeContent">
+						<img src="@recipe.ImgLink" />
+						<pre>@recipe.Description</pre>
+					</div>
+					<div class="recipeStats">
+						@if (SignInManager.IsSignedIn(User) && !User.IsInRole("Default"))
+						{
+							<a id="editRecipe" asp-page="/EditRecipe" asp-route-id="@recipe.Id"><i class="fa-solid fa-pen"></i></a>
+						}
+						<p>
+							@for (int i = 0; i < recipe.Stars; i++)
+							{
+								<i class="fa-solid fa-star"></i>
+							}
+						</p>
+						<p>@(recipe.Stars * 20) p</p>
+					</div>
+				</article>
+			}
 
 		}
 	}
