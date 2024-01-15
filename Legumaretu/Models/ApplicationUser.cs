@@ -15,7 +15,7 @@ namespace Legumaretu.Models
 
 			foreach (var prog in ChallengeProgresses)
 			{
-				if (!arePointsOfficial || (arePointsOfficial && prog.Challenge.Official))
+				if (arePointsOfficial == prog.Challenge.Official)
 				{
 					foreach (var chTask in prog.ChTasks)
 					{
