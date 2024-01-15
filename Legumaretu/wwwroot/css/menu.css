@@ -71,3 +71,47 @@
 .menu > a * {
   height: fit-content;
 }
+
+#menuUserArea {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5em;
+  height: 6em;
+  width: 10vw;
+  border-radius: 20px;
+  box-shadow: -19px 11px 15px 0px #F58344, 11px -10px 15px 0px #F54545;
+  transition: box-shadow 0.2s ease;
+}
+#menuUserArea > div {
+  align-self: center;
+  display: flex;
+  gap: 0.5em;
+}
+#menuUserArea > div > * {
+  align-self: center;
+}
+#menuUserArea:hover {
+  box-shadow: -19px -11px 15px 0px #F58344, 11px 10px 15px 0px #F54545;
+}
+
+#superMenuUserArea {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+}
+#superMenuUserArea a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46);
+}
+#superMenuUserArea a:hover {
+  color: #F56345;
+}
+#superMenuUserArea a {
+  align-self: center;
+  text-align: center;
+  width: 7vw;
+  background: black;
+  border-radius: 0 0 20px 20px;
+}

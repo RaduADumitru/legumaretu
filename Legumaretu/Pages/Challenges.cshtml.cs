@@ -22,9 +22,17 @@ namespace Legumaretu.Pages
             _context = context;
             _signInManager = signInManager;
             _userManager = userManager;
-            
-            MinPoints = _context.Challenges.Include(c => c.Recipes).ToList().Min(c => c.TotalPoints());
-            MaxPoints = _context.Challenges.Include(c => c.Recipes).ToList().Max(c => c.TotalPoints());
+
+            if (_context.Challenges.Include(c => c.Recipes).ToList().Count() != 0)
+            {
+                MinPoints = _context.Challenges.Include(c => c.Recipes).ToList().Min(c => c.TotalPoints());
+                MaxPoints = _context.Challenges.Include(c => c.Recipes).ToList().Max(c => c.TotalPoints());
+            }
+            else
+            {
+                MinPoints = 0; 
+                MaxPoints = 0;
+            }
         }
 
         public void OnGet(string searchStr, string filterValue)

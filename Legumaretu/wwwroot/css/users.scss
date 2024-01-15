@@ -1,0 +1,33 @@
+﻿@use "vars.scss";
+
+.users {
+    article {
+        margin: 0 vars.$pagemargins 2em vars.$pagemargins;
+        text-align: center;
+
+        > div {
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 2em;
+
+            > * {
+                display: flex;
+                flex-direction: column;
+                border: 1px solid vars.$secbg;
+                border-radius: vars.$radius;
+                width: 20vw;
+                padding: 1em;
+                    
+                h3 {
+                    color: vars.$color4;
+                }
+
+                ul {
+                    text-align: left;
+                }
+            }
+        }
+
+        @include vars.link;
+    }
+}

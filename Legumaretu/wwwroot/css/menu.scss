@@ -79,3 +79,46 @@ $menuh: 3em;
         }
     }
 }
+
+#menuUserArea {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5em;
+    height: 6em;
+    width: 10vw;
+
+    > div {
+        align-self: center;
+        display: flex;
+        gap: 0.5em;
+
+        > * {
+            align-self: center;
+        }
+    }
+
+    border-radius: vars.$radius;
+    box-shadow: -19px 11px vars.$fuzz 0px vars.$color1, 11px -10px vars.$fuzz 0px vars.$color2;
+    transition: box-shadow vars.$timing ease;
+
+    &:hover {
+        box-shadow: -19px -11px vars.$fuzz 0px vars.$color1, 11px 10px vars.$fuzz 0px vars.$color2;
+    }
+}
+
+#superMenuUserArea {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+
+    @include vars.link;
+
+    a {
+        align-self: center;
+        text-align: center;
+        width: 7vw;
+        background: vars.$mainbg;
+        border-radius: 0 0 vars.$radius vars.$radius;
+    }
+}

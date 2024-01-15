@@ -1,41 +1,78 @@
 ﻿@page
+@using Microsoft.AspNetCore.Identity
+@using Legumaretu.Models
 @model Legumaretu.Pages.UsersModel
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
 
 @{
-	ViewData["Title"] = "Users";
+	ViewData["Title"] = "Utilizatori";
 	Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<h1>Users</h1>
-
-
-@foreach (var user in Model.Users)
-{
-	<h2>@user.UserName</h2>
-	<h3>Recipes</h3>
-	<ul>
-		@foreach (var recipe in user.Recipes)
-		{
-			<li>@recipe.Name</li>
-		}
-	</ul>
-	<h3>Challenges</h3>
-	<ul>
-		@foreach (var challenge in user.Challenges)
-		{
-			<li>@challenge.Name</li>
-		}
-	</ul>
-	<h3>Challenge progresses</h3>
-	<ul>
-		@foreach (var challengeProgress in user.ChallengeProgresses)
-		{
-			<li>@challengeProgress.Challenge.Name</li>
-			@foreach (var chtask in challengeProgress.ChTasks)
+<section class="users">
+	@foreach (var user in Model.Users)
+	{
+		<article>
+			@if (User.IsInRole("Admin"))
 			{
-				<li>@chtask.Recipe.Name</li>
-				<li>@chtask.Done</li>
+				<h2><a asp-page="./EditUserRoles" asp-route-userId="@user.Id">Username: @user.UserName</a></h2>
 			}
-		}
-	</ul>
-}
+			else
+			{
+				<h2>Username: @user.UserName</h2>
+			}
+
+			<div>
+				<div>
+					<h3>Rețete</h3>
+					<ul>
+						@foreach (var recipe in user.Recipes)
+						{
+							<li>
+								<a asp-page="/Recipe" asp-route-id="@recipe.Id">@recipe.Name</a>
+								<span><a asp-page="/EditRecipe" asp-route-id="@recipe.Id"><i class="fa-solid fa-pen"></i></a></span>
+								<span><a asp-page="/DeleteRecipe" asp-route-id="@recipe.Id"><i class="fa-solid fa-trash"></i></a></span>
+							</li>
+						}
+					</ul>
+				</div>
+				<div>
+					<h3>Provocări</h3>
+					<ul>
+						@foreach (var challenge in user.Challenges)
+						{
+							<li>@challenge.Name</li>
+						}
+					</ul>
+				</div>
+				<div>
+					<h3>Progres la provocări</h3>
+					<ul>
+						@foreach (var challengeProgress in user.ChallengeProgresses)
+						{
+							bool allDone = true;
+							foreach (var chtask in challengeProgress.ChTasks)
+							{
+								if (!chtask.Done)
+								{
+									allDone = false;
+									break;
+								}
+							}
+
+							if (allDone)
+							{
+								<li>@challengeProgress.Challenge.Name - Terminată</li>
+							}
+							else
+							{
+								<li>@challengeProgress.Challenge.Name - Neterminată</li>
+							}
+						}
+					</ul>
+				</div>
+			</div>
+		</article>
+	}
+</section>
