@@ -1,6 +1,7 @@
 using Legumaretu.Data;
 using Legumaretu.Models;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 
 namespace Legumaretu.Pages
@@ -30,7 +31,7 @@ namespace Legumaretu.Pages
             }
         }
 
-        public void OnGet(string searchStr, string filterValue)
+        public void OnGet(string searchStr, string filterValue, string sortOrder)
         {
             if (!String.IsNullOrEmpty(searchStr))
             {
@@ -45,6 +46,15 @@ namespace Legumaretu.Pages
             {
                 Progresses = _context.ChallengeProgresses.Include(p => p.Challenge).Include(p => p.ChTasks).Include(p => p.Challenge.Recipes).ToList();
             }
-        }
+
+			if (sortOrder == "desc")
+			{
+				Progresses = Progresses.OrderByDescending(p => p.Challenge.Name).ToList();
+			}
+			else if (sortOrder == "asc")
+			{
+				Progresses = Progresses.OrderBy(p => p.Challenge.Name).ToList();
+			}
+		}
     }
 }

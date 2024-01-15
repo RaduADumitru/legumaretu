@@ -394,7 +394,8 @@
   gap: 1em;
 }
 .challengeTitleDesc #challengesStats > * {
-  width: 3em;
+  width: 4em;
+  align-self: last baseline;
   height: fit-content;
   text-align: center;
   border: 1px solid white;

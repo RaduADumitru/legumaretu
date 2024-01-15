@@ -1,6 +1,7 @@
 ﻿using Legumaretu.Data;
 using Legumaretu.Models;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Data.SqlClient;
 
 namespace Legumaretu.Pages
 {
@@ -16,7 +17,7 @@ namespace Legumaretu.Pages
             _context = context;
         }
 
-        public void OnGet(string searchStr, string starFilter)
+        public void OnGet(string searchStr, string starFilter, string sortOrder)
 		{
 			if (!String.IsNullOrEmpty(searchStr))
 			{
@@ -31,6 +32,15 @@ namespace Legumaretu.Pages
 			{
 				Recipes = _context.Recipes.ToList();
 			}
-        }
+
+			if(sortOrder == "desc")
+			{
+				Recipes = Recipes.OrderByDescending(r => r.Name).ToList();
+			}
+			else if(sortOrder == "asc")
+			{
+				Recipes = Recipes.OrderBy(r => r.Name).ToList();
+			}
+		}
 	}
 }

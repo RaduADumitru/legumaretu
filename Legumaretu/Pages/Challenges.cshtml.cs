@@ -30,7 +30,7 @@ namespace Legumaretu.Pages
             }
         }
 
-        public void OnGet(string searchStr, string filterValue)
+        public void OnGet(string searchStr, string filterValue, string sortOrder)
         {
             if (!String.IsNullOrEmpty(searchStr))
             {
@@ -45,6 +45,15 @@ namespace Legumaretu.Pages
             else
             {
                 Challenges = _context.Challenges.Include(c => c.Recipes).ToList();
+            }
+
+            if (sortOrder == "desc")
+            {
+                Challenges = Challenges.OrderByDescending(c => c.Name).ToList();
+            }
+            else if (sortOrder == "asc")
+            {
+                Challenges = Challenges.OrderBy(c => c.Name).ToList();
             }
         }
     }

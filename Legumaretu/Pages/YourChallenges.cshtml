@@ -18,6 +18,18 @@
         <output name="showPoints"></output>
         <button type="submit">Filtrează</button>
     </form>
+	<form asp-page="./YourChallenges" method="get">
+		<p>Sortează provocările</p>
+		<label>
+			Crescător
+			<input type="radio" name="sortOrder" value="asc" />
+		</label>
+		<label>
+			Descrescător
+			<input type="radio" name="sortOrder" value="desc" />
+		</label>
+		<button type="submit">Sortează</button>
+	</form>
 </section>
 
 <section class="yourChallengesList">
