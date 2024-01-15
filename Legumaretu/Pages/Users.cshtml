@@ -42,7 +42,11 @@
 					<ul>
 						@foreach (var challenge in user.Challenges)
 						{
-							<li>@challenge.Name</li>
+							<li>
+								@challenge.Name
+								<span><a asp-page="/EditChallenge" asp-route-id="@challenge.Id"><i class="fa-solid fa-pen"></i></a></span>
+								<span><a asp-page="/DeleteChallenge" asp-route-id="@challenge.Id"><i class="fa-solid fa-trash"></i></a></span>
+							</li>
 						}
 					</ul>
 				</div>

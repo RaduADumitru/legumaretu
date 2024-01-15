@@ -394,7 +394,8 @@
   gap: 1em;
 }
 .challengeTitleDesc #challengesStats > * {
-  width: 3em;
+  width: 4em;
+  align-self: last baseline;
   height: fit-content;
   text-align: center;
   border: 1px solid white;
@@ -632,6 +633,8 @@
   flex-direction: column;
 }
 .yourChallengesTitleDesc > div:nth-child(2) > * {
+  width: 9em;
+  text-align: center;
   align-self: last baseline;
   height: fit-content;
   border: 1px solid white;
@@ -657,6 +660,10 @@
 .yourChallengesTitleDesc > div:nth-child(2) a:hover {
   box-shadow: 12px 12px 15px -5px #F54545;
   color: #F56345;
+}
+
+.challengeDescription {
+  width: 100%;
 }
 
 .yourChallengeRecipeList {

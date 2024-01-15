@@ -35,7 +35,7 @@ namespace Legumaretu.Pages
             }
         }
 
-        public void OnGet(string searchStr, string filterValue)
+        public void OnGet(string searchStr, string filterValue, string sortOrder)
         {
             if (!String.IsNullOrEmpty(searchStr))
             {
@@ -67,6 +67,15 @@ namespace Legumaretu.Pages
 	            String userId = _userManager.GetUserId(User);
 	            Challenges = Challenges.Where(c => c.Official || c.User.Id == userId).ToList();
             }
-		}
+            
+            if (sortOrder == "desc")
+            {
+                Challenges = Challenges.OrderByDescending(c => c.Name).ToList();
+            }
+            else if (sortOrder == "asc")
+            {
+                Challenges = Challenges.OrderBy(c => c.Name).ToList();
+            }
+		    }
     }
 }

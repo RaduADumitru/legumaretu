@@ -3,6 +3,7 @@ using Legumaretu.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Data.SqlClient;
 
 namespace Legumaretu.Pages
 {
@@ -22,7 +23,8 @@ namespace Legumaretu.Pages
 			_userManager = userManager;
 		}
 
-		public void OnGet(string searchStr, string starFilter)
+
+    public void OnGet(string searchStr, string starFilter, string sortOrder)
 		{
 			if (!String.IsNullOrEmpty(searchStr))
 			{
@@ -54,6 +56,15 @@ namespace Legumaretu.Pages
 				Recipes = Recipes.Where(r => r.Official || r.User.Id == userId).ToList();
 			}
 
+
+			if(sortOrder == "desc")
+			{
+				Recipes = Recipes.OrderByDescending(r => r.Name).ToList();
+			}
+			else if(sortOrder == "asc")
+			{
+				Recipes = Recipes.OrderBy(r => r.Name).ToList();
+			}
 		}
 	}
 }
