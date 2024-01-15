@@ -24,7 +24,7 @@ namespace Legumaretu.Pages
 		}
 
 
-    public void OnGet(string searchStr, string starFilter, string sortOrder)
+		public void OnGet(string searchStr, string starFilter, string sortOrder)
 		{
 			if (!String.IsNullOrEmpty(searchStr))
 			{
@@ -39,6 +39,7 @@ namespace Legumaretu.Pages
 			{
 				Recipes = _context.Recipes.Include(r => r.User).ToList();
 			}
+			
 			//if not logged in, show only official recipes
 			if (!_signInManager.IsSignedIn(User))
 			{
@@ -55,7 +56,6 @@ namespace Legumaretu.Pages
 				String userId = _userManager.GetUserId(User);
 				Recipes = Recipes.Where(r => r.Official || r.User.Id == userId).ToList();
 			}
-
 
 			if(sortOrder == "desc")
 			{
