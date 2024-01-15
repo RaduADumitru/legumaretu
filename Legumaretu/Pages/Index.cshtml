@@ -60,10 +60,8 @@
                         <pre>@recipe.Description</pre>
                     </div>
                     <div class="recipeStats">
-                        @if (SignInManager.IsSignedIn(User) && !User.IsInRole("Default"))
-                        {
-                            <a id="editRecipe" asp-page="/EditRecipe" asp-route-id="@recipe.Id"><i class="fa-solid fa-pen"></i></a>
-                        }
+                        <a id="deleteRecipe" asp-page="./DeleteRecipe" asp-route-id="@recipe.Id"><i class="fa-solid fa-trash"></i></a>
+                        <a id="editRecipe" asp-page="/EditRecipe" asp-route-id="@recipe.Id"><i class="fa-solid fa-pen"></i></a>
                         <p>
                             @for(int i = 0; i < recipe.Stars; i++)
                             {
@@ -74,7 +72,6 @@
                     </div>
                 </article>
             }
-
 		}
 	}
 </section>

@@ -61,10 +61,10 @@
 .recipeStats i {
   color: gold;
 }
-.recipeStats #editRecipe {
+.recipeStats #editRecipe, .recipeStats #deleteRecipe {
   align-self: flex-start;
 }
-.recipeStats #editRecipe i {
+.recipeStats #editRecipe i, .recipeStats #deleteRecipe i {
   color: white;
   width: 2em;
   text-align: center;

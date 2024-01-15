@@ -21,9 +21,15 @@
   display: flex;
   justify-content: space-between;
 }
-.challengeTitleDesc > p {
+.challengeTitleDesc #challengesStats {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+}
+.challengeTitleDesc #challengesStats > * {
+  width: 3em;
   height: fit-content;
-  align-self: center;
+  text-align: center;
   border: 1px solid white;
   border-radius: 15px;
   padding: 0.5em;
