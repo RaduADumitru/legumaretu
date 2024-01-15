@@ -21,7 +21,7 @@
         <button type="submit">Caută</button>
     </form>
     <form asp-page="./Challenges" method="get" class="pointsearch">
-        <p>Filtrează după nr. de puncte</p>
+        <p>Filtrează după nr. maxim de pct.</p>
         <span>@Model.MinPoints</span>
         <input type="range" name="filterValue" min="@Model.MinPoints" max="@Model.MaxPoints" oninput="showPoints.value = this.value" />
         <span>@Model.MaxPoints</span>
@@ -53,7 +53,11 @@
                             </h2>
                             <p>@challenge.Description</p>
                         </div>
-                        <p>@challenge.TotalPoints() p</p>
+                        <div id="challengesStats">
+                            <a asp-page="/EditChallenge" asp-route-id="@challenge.Id"><i class="fa-solid fa-pen"></i></a>
+                            <a asp-page="/DeleteChallenge" asp-route-id="@challenge.Id"><i class="fa-solid fa-trash"></i></a>
+                            <p>@challenge.TotalPoints() p</p>
+                        </div>
                     </div>
                     <div class="challengeRecipeList">
                         @if (challenge.Recipes.Count() == 0)

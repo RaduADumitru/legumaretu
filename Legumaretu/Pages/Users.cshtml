@@ -14,7 +14,7 @@
 	@foreach (var user in Model.Users)
 	{
 		<article>
-			@if(User.IsInRole("Admin"))
+			@if (User.IsInRole("Admin"))
 			{
 				<h2><a asp-page="./EditUserRoles" asp-route-userId="@user.Id">Username: @user.UserName</a></h2>
 			}
@@ -29,7 +29,11 @@
 					<ul>
 						@foreach (var recipe in user.Recipes)
 						{
-							<li>@recipe.Name</li>
+							<li>
+								<a asp-page="/Recipe" asp-route-id="@recipe.Id">@recipe.Name</a>
+								<span><a asp-page="/EditRecipe" asp-route-id="@recipe.Id"><i class="fa-solid fa-pen"></i></a></span>
+								<span><a asp-page="/DeleteRecipe" asp-route-id="@recipe.Id"><i class="fa-solid fa-trash"></i></a></span>
+							</li>
 						}
 					</ul>
 				</div>
@@ -48,16 +52,16 @@
 						@foreach (var challengeProgress in user.ChallengeProgresses)
 						{
 							bool allDone = true;
-							foreach(var chtask in challengeProgress.ChTasks)
+							foreach (var chtask in challengeProgress.ChTasks)
 							{
-								if(!chtask.Done)
+								if (!chtask.Done)
 								{
 									allDone = false;
 									break;
 								}
 							}
 
-							if(allDone)
+							if (allDone)
 							{
 								<li>@challengeProgress.Challenge.Name - Terminată</li>
 							}

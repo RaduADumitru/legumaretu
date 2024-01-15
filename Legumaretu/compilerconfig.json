@@ -74,5 +74,17 @@
   {
     "outputFile": "wwwroot/css/editUsers.css",
     "inputFile": "wwwroot/css/editUsers.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/error.css",
+    "inputFile": "wwwroot/css/error.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/deleteRecipe.css",
+    "inputFile": "wwwroot/css/deleteRecipe.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/editChallenge.css",
+    "inputFile": "wwwroot/css/editChallenge.scss"
   }
 ]

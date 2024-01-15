@@ -11,7 +11,7 @@
         <button type="submit">Caută</button>
     </form>
     <form asp-page="./YourChallenges" method="get" class="pointsearch">
-        <p>Filtrează după nr. de puncte</p>
+        <p>Filtrează după nr. maxim de pct.</p>
         <span>@Model.MinPoints</span>
         <input type="range" name="filterValue" min="@Model.MinPoints" max="@Model.MaxPoints" oninput="showPoints.value = this.value" />
         <span>@Model.MaxPoints</span>

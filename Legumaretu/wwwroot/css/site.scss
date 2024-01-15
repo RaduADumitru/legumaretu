@@ -4,8 +4,11 @@
 @use "recipes.scss";
 @use "addRecipe.scss";
 @use "editRecipe.scss";
+@use "deleteRecipe.scss";
 @use "challenges.scss";
 @use "addChallenge.scss";
+@use "editChallenge.scss";
+@use "deleteChallenge.scss";
 @use "signUpForChallenge.scss";
 @use "yourChallenges.scss";
 @use "editChallengeProgress.scss";
@@ -16,6 +19,7 @@
 @use "register.scss";
 @use "users.scss";
 @use "editUsers.scss";
+@use "error.scss";
 
 h1 {
     color: vars.$textcol;

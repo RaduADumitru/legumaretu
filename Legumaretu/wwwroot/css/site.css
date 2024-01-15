@@ -216,10 +216,10 @@
 .recipeStats i {
   color: gold;
 }
-.recipeStats #editRecipe {
+.recipeStats #editRecipe, .recipeStats #deleteRecipe {
   align-self: flex-start;
 }
-.recipeStats #editRecipe i {
+.recipeStats #editRecipe i, .recipeStats #deleteRecipe i {
   color: white;
   width: 2em;
   text-align: center;
@@ -332,6 +332,39 @@
   color: #F56345;
 }
 
+.deleterecipe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.deleterecipe form {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  gap: 0.7em;
+}
+.deleterecipe form button {
+  align-self: flex-end;
+  width: 10em;
+  background: black;
+  padding: 0.5em;
+  text-align: center;
+  color: white;
+  border: 1px solid white;
+  border-radius: 15px;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46);
+  box-shadow: 8px 8px 15px -5px #F54545;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46), box-shadow 0.2s ease;
+}
+.deleterecipe form button:hover {
+  color: #F56345;
+}
+.deleterecipe form button:hover {
+  box-shadow: 12px 12px 15px -5px #F54545;
+  color: #F56345;
+}
+
 .challengesList {
   margin: 0 15vw 1em 15vw;
   margin-bottom: 2em;
@@ -355,9 +388,15 @@
   display: flex;
   justify-content: space-between;
 }
-.challengeTitleDesc > p {
+.challengeTitleDesc #challengesStats {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+}
+.challengeTitleDesc #challengesStats > * {
+  width: 3em;
   height: fit-content;
-  align-self: center;
+  text-align: center;
   border: 1px solid white;
   border-radius: 15px;
   padding: 0.5em;
@@ -459,6 +498,72 @@
   color: #F56345;
 }
 .addchallenge form button:hover {
+  box-shadow: 12px 12px 15px -5px #F54545;
+  color: #F56345;
+}
+
+.editchallenge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.editchallenge form {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  gap: 0.7em;
+}
+.editchallenge form button {
+  align-self: flex-end;
+  width: 10em;
+  background: black;
+  padding: 0.5em;
+  text-align: center;
+  color: white;
+  border: 1px solid white;
+  border-radius: 15px;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46);
+  box-shadow: 8px 8px 15px -5px #F54545;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46), box-shadow 0.2s ease;
+}
+.editchallenge form button:hover {
+  color: #F56345;
+}
+.editchallenge form button:hover {
+  box-shadow: 12px 12px 15px -5px #F54545;
+  color: #F56345;
+}
+
+.deletechallenge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.deletechallenge form {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  gap: 0.7em;
+}
+.deletechallenge form button {
+  align-self: flex-end;
+  width: 10em;
+  background: black;
+  padding: 0.5em;
+  text-align: center;
+  color: white;
+  border: 1px solid white;
+  border-radius: 15px;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46);
+  box-shadow: 8px 8px 15px -5px #F54545;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46), box-shadow 0.2s ease;
+}
+.deletechallenge form button:hover {
+  color: #F56345;
+}
+.deletechallenge form button:hover {
   box-shadow: 12px 12px 15px -5px #F54545;
   color: #F56345;
 }
@@ -938,6 +1043,16 @@
 .editusers form > div {
   display: flex;
   justify-content: space-between;
+}
+
+.error {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.error h2 {
+  color: #F54545;
 }
 
 h1 {
