@@ -58,12 +58,12 @@ namespace Legumaretu.Pages
             }
             else if (User.IsInRole("Moderator") || User.IsInRole("Administrator"))
             {
-	            //show all recipes
+	            //show all challenges
 	            Challenges = Challenges.ToList();
             }
             else
             {
-	            //show only official recipes and own recipes
+	            //show only official challenges and own challenges
 	            String userId = _userManager.GetUserId(User);
 	            Challenges = Challenges.Where(c => c.Official || c.User.Id == userId).ToList();
             }
