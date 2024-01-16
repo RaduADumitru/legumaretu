@@ -30,7 +30,7 @@
 						@foreach (var recipe in user.Recipes)
 						{
 							<li>
-								<a asp-page="/Recipe" asp-route-id="@recipe.Id">@recipe.Name</a>
+								<a asp-page="/Recipe" asp-route-recipeId="@recipe.Id">@recipe.Name</a>
 								<span><a asp-page="/EditRecipe" asp-route-id="@recipe.Id"><i class="fa-solid fa-pen"></i></a></span>
 								<span><a asp-page="/DeleteRecipe" asp-route-id="@recipe.Id"><i class="fa-solid fa-trash"></i></a></span>
 							</li>
