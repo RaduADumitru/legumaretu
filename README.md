@@ -8,7 +8,9 @@ Legumărețu' is a web app destined for people interested in expanding their cul
 
 ## Main features
 🍽️Explore a variety of cooking recipes, uploaded by moderators
+
 ✅Complete challenges based on these recipes in order to earn "official" points
+
 🍳Submit your own recipes and challenges, and complete them for "personal" points
 
 ![Recipes page](./Screenshots/recipes.png)
