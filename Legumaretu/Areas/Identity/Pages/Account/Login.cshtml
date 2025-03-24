@@ -1,0 +1,34 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Logare";
+}
+
+<section class="login">
+    <h2>@ViewData["Title"]</h2>
+    <form id="account" method="post">
+        <div asp-validation-summary="ModelOnly" class="loginFormErrors text-danger "></div>
+        <label asp-for="Input.Email">Email</label>
+        <input asp-for="Input.Email" aria-required="true" />
+        <span asp-validation-for="Input.Email" class="text-danger"></span>
+
+        <label asp-for="Input.Password">Parolă</label>
+        <input asp-for="Input.Password" aria-required="true" />
+        <span asp-validation-for="Input.Password" class="text-danger"></span>
+
+        <div class="checkbox">
+            <label asp-for="Input.RememberMe" class="form-label">
+                <input class="form-check-input" asp-for="Input.RememberMe" />
+                Ține-mă minte
+            </label>
+        </div>
+
+        <button id="login-submit" type="submit">Loghează-te</button>
+        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Înregistrează-te</a>
+    </form>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,18 +1,761 @@
+﻿.menuSelected {
+  color: #F56345 !important;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  padding: 0 2em 0 2em;
+  margin: 2em 0 3em 0;
+}
+.menu > * {
+  margin: 0 3vw 0 3vw;
+}
+.menu h1 {
+  align-self: center;
+  margin-left: 0.7em;
+}
+.menu img {
+  width: 7em;
+  height: 7em;
+  border-radius: 20px;
+  margin-right: 0;
+}
+.menu nav {
+  align-self: center;
+  font-size: 1.4em;
+}
+.menu nav > ul {
+  display: flex;
+  justify-content: space-evenly;
+  width: 40vw;
+  height: 3em;
+  margin: 0;
+  padding: 0;
+  border-radius: 20px;
+  box-shadow: -19px 11px 15px 0px #F58344, 11px -10px 15px 0px #F54545;
+  transition: box-shadow 0.2s ease;
+}
+.menu nav > ul:hover {
+  box-shadow: 19px 11px 15px 0px #F58344, -11px -10px 15px 0px #F54545;
+}
+.menu nav > ul li {
+  align-self: center;
+  list-style: none;
+  font-weight: lighter;
+}
+.menu nav > ul li a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46);
+}
+.menu nav > ul li a:hover {
+  color: #F56345;
+}
+.menu > a {
+  align-self: center;
+  width: 7vw;
+  height: 3em;
+  padding-top: 0.6em;
+  border-radius: 20px;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 19px 11px 20px 0px #F58344, -11px -10px 20px 0px #F54545;
+  color: white;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46), box-shadow 0.2s ease;
+}
+.menu > a:hover {
+  box-shadow: 19px -11px 15px 0px #F58344, -11px 10px 15px 0px #F54545;
+  color: #F56345;
+}
+.menu > a * {
+  height: fit-content;
+}
+
+.recipe {
+  display: flex;
+  flex-direction: column;
+  margin: 0 15vw 1em 15vw;
+}
+.recipe img {
+  align-self: center;
+  width: 50%;
+  border-radius: 20px;
+  box-shadow: 13px 12px 15px 0px #F56345;
+  transition: box-shadow 0.2s ease;
+}
+.recipe img:hover {
+  box-shadow: 23px 22px 15px 0px #F56345;
+}
+.recipe h2 {
+  font-size: 40px;
+  margin-top: 1.5em;
+}
+.recipe div {
+  display: flex;
+  gap: 1em;
+}
+.recipe div > * {
+  border: 1px solid white;
+  border-radius: 20px;
+  padding: 0.5em;
+}
+.recipe div i {
+  color: gold;
+}
+.recipe pre {
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  white-space: pre-wrap;
+}
+
+.recipeList {
+  margin: 0 15vw 1em 15vw;
+  margin-bottom: 2em;
+}
+.recipeList > article {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+.recipeList > article a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46);
+}
+.recipeList > article a:hover {
+  color: #F56345;
+}
+
+.recipeContent {
+  display: flex;
+  flex-direction: row;
+  gap: 2em;
+}
+.recipeContent img {
+  width: 50%;
+  height: 35em;
+  border-radius: 20px;
+  box-shadow: -13px 12px 15px 0px #F56345;
+  transition: box-shadow 0.2s ease;
+}
+.recipeContent img:hover {
+  box-shadow: -23px 22px 15px 0px #F56345;
+}
+.recipeContent pre {
+  width: 50%;
+  height: 35em;
+  padding: 2em;
+  white-space: pre-wrap;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  border: 1px solid white;
+  border-radius: 20px;
+  box-shadow: 13px -12px 15px 0px #F5A145;
+  transition: box-shadow 0.2s ease;
+  overflow: scroll;
+}
+.recipeContent pre:hover {
+  box-shadow: 23px -22px 15px 0px #F5A145;
+}
+
+.recipeStats {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1em;
+}
+.recipeStats > * {
+  border: 1px solid white;
+  border-radius: 15px;
+  padding: 0.5em;
+}
+.recipeStats i {
+  color: gold;
+}
+.recipeStats #editRecipe {
+  align-self: flex-start;
+}
+.recipeStats #editRecipe i {
+  color: white;
+  width: 2em;
+  text-align: center;
+}
+
+#addrecipe {
+  position: fixed;
+  left: 90%;
+  top: 87%;
+  transform: translate(-20%, 0%);
+  padding: 1em;
+  text-decoration: none;
+  border-radius: 15px;
+  color: white;
+  text-align: center;
+  box-shadow: 8px 8px 15px -5px #F54545;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46), box-shadow 0.2s ease;
+}
+#addrecipe:hover {
+  box-shadow: 12px 12px 15px -5px #F54545;
+  color: #F56345;
+}
+
+.addrecipe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.addrecipe form {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  gap: 0.7em;
+}
+.addrecipe form button {
+  align-self: flex-end;
+  width: 10em;
+  background: black;
+  padding: 0.5em;
+  text-align: center;
+  color: white;
+  border: 1px solid white;
+  border-radius: 15px;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46);
+  box-shadow: 8px 8px 15px -5px #F54545;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46), box-shadow 0.2s ease;
+}
+.addrecipe form button:hover {
+  color: #F56345;
+}
+.addrecipe form button:hover {
+  box-shadow: 12px 12px 15px -5px #F54545;
+  color: #F56345;
+}
+
+.editRecipe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.editRecipe form {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  gap: 0.7em;
+}
+.editRecipe form button {
+  align-self: flex-end;
+  width: 10em;
+  background: black;
+  padding: 0.5em;
+  text-align: center;
+  color: white;
+  border: 1px solid white;
+  border-radius: 15px;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46);
+  box-shadow: 8px 8px 15px -5px #F54545;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46), box-shadow 0.2s ease;
+}
+.editRecipe form button:hover {
+  color: #F56345;
+}
+.editRecipe form button:hover {
+  box-shadow: 12px 12px 15px -5px #F54545;
+  color: #F56345;
+}
+
+.challengesList {
+  margin: 0 15vw 1em 15vw;
+  margin-bottom: 2em;
+}
+.challengesList > article {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin-bottom: 3em;
+}
+.challengesList a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46);
+}
+.challengesList a:hover {
+  color: #F56345;
+}
+
+.challengeTitleDesc {
+  display: flex;
+  justify-content: space-between;
+}
+.challengeTitleDesc > p {
+  height: fit-content;
+  align-self: center;
+  border: 1px solid white;
+  border-radius: 15px;
+  padding: 0.5em;
+}
+
+.challengeRecipeList {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  border: 1px solid white;
+  border-radius: 20px;
+  padding: 2em;
+  box-shadow: 13px 12px 15px 0px #F56345;
+  transition: box-shadow 0.2s ease;
+}
+.challengeRecipeList:hover {
+  box-shadow: 23px 22px 15px 0px #F56345;
+}
+
+.challengeRecipe {
+  display: flex;
+  gap: 2em;
+  justify-content: space-between;
+}
+.challengeRecipe img {
+  width: 10em;
+  border-radius: 20px;
+  box-shadow: -10px 8px 15px 0px #F5BA45;
+  transition: box-shadow 0.2s ease;
+}
+.challengeRecipe img:hover {
+  box-shadow: -13px 10px 15px 0px #F5BA45;
+}
+.challengeRecipe h3, .challengeRecipe div {
+  align-self: center;
+}
+.challengeRecipe div {
+  display: flex;
+  gap: 1em;
+}
+.challengeRecipe div > * {
+  border: 1px solid white;
+  border-radius: 15px;
+  padding: 0.5em;
+}
+.challengeRecipe div i {
+  color: gold;
+}
+
+#addchallenge, #signupforchallenge {
+  position: fixed;
+  left: 90%;
+  top: 87%;
+  transform: translate(-20%, 0%);
+  padding: 1em;
+  text-decoration: none;
+  border-radius: 15px;
+  color: white;
+  text-align: center;
+  box-shadow: 8px 8px 15px -5px #F54545;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46), box-shadow 0.2s ease;
+}
+#addchallenge:hover, #signupforchallenge:hover {
+  box-shadow: 12px 12px 15px -5px #F54545;
+  color: #F56345;
+}
+
+#signupforchallenge {
+  left: 90%;
+  top: 78%;
+}
+
+.addchallenge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.addchallenge form {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  gap: 0.7em;
+}
+.addchallenge form button {
+  align-self: flex-end;
+  width: 10em;
+  background: black;
+  padding: 0.5em;
+  text-align: center;
+  color: white;
+  border: 1px solid white;
+  border-radius: 15px;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46);
+  box-shadow: 8px 8px 15px -5px #F54545;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46), box-shadow 0.2s ease;
+}
+.addchallenge form button:hover {
+  color: #F56345;
+}
+.addchallenge form button:hover {
+  box-shadow: 12px 12px 15px -5px #F54545;
+  color: #F56345;
+}
+
+.signupforchallenge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.signupforchallenge form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7em;
+  margin-top: 2em;
+}
+.signupforchallenge form button {
+  align-self: flex-end;
+  width: 10em;
+  background: black;
+  padding: 0.5em;
+  text-align: center;
+  color: white;
+  border: 1px solid white;
+  border-radius: 15px;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46);
+  box-shadow: 8px 8px 15px -5px #F54545;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46), box-shadow 0.2s ease;
+}
+.signupforchallenge form button:hover {
+  color: #F56345;
+}
+.signupforchallenge form button:hover {
+  box-shadow: 12px 12px 15px -5px #F54545;
+  color: #F56345;
+}
+
+.yourChallengesList {
+  margin: 0 15vw 1em 15vw;
+  margin-bottom: 2em;
+}
+.yourChallengesList > article {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin-bottom: 3em;
+}
+.yourChallengesList a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46);
+}
+.yourChallengesList a:hover {
+  color: #F56345;
+}
+
+.yourChallengesTitleDesc {
+  display: flex;
+  justify-content: space-between;
+}
+.yourChallengesTitleDesc > div {
+  display: flex;
+  gap: 1em;
+}
+.yourChallengesTitleDesc > div:nth-child(1) {
+  flex-direction: column;
+}
+.yourChallengesTitleDesc > div:nth-child(2) > * {
+  align-self: last baseline;
+  height: fit-content;
+  border: 1px solid white;
+  border-radius: 15px;
+  padding: 0.5em;
+}
+.yourChallengesTitleDesc > div:nth-child(2) a {
+  width: 10em;
+  background: black;
+  padding: 0.5em;
+  text-align: center;
+  color: white;
+  border: 1px solid white;
+  border-radius: 15px;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46);
+  box-shadow: 8px 8px 15px -5px #F54545;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46), box-shadow 0.2s ease;
+  width: fit-content;
+}
+.yourChallengesTitleDesc > div:nth-child(2) a:hover {
+  color: #F56345;
+}
+.yourChallengesTitleDesc > div:nth-child(2) a:hover {
+  box-shadow: 12px 12px 15px -5px #F54545;
+  color: #F56345;
+}
+
+.yourChallengeRecipeList {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  border: 1px solid white;
+  border-radius: 20px;
+  padding: 2em;
+  box-shadow: 13px 12px 15px 0px #F56345;
+  transition: box-shadow 0.2s ease;
+}
+.yourChallengeRecipeList:hover {
+  box-shadow: 23px 22px 15px 0px #F56345;
+}
+
+.yourChallengeRecipe {
+  display: flex;
+  gap: 2em;
+  justify-content: space-between;
+}
+.yourChallengeRecipe img {
+  width: 10em;
+  border-radius: 20px;
+  box-shadow: -10px 8px 15px 0px #F5BA45;
+  transition: box-shadow 0.2s ease;
+}
+.yourChallengeRecipe img:hover {
+  box-shadow: -13px 10px 15px 0px #F5BA45;
+}
+.yourChallengeRecipe h3, .yourChallengeRecipe div {
+  align-self: center;
+}
+.yourChallengeRecipe div {
+  display: flex;
+  gap: 1em;
+}
+.yourChallengeRecipe div > * {
+  border: 1px solid white;
+  border-radius: 15px;
+  padding: 0.5em;
+}
+.yourChallengeRecipe div i {
+  color: gold;
+}
+
+.editchallengeprogress {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.editchallengeprogress form {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  gap: 0.7em;
+}
+.editchallengeprogress form button {
+  align-self: flex-end;
+  width: 10em;
+  background: black;
+  padding: 0.5em;
+  text-align: center;
+  color: white;
+  border: 1px solid white;
+  border-radius: 15px;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46);
+  box-shadow: 8px 8px 15px -5px #F54545;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46), box-shadow 0.2s ease;
+}
+.editchallengeprogress form button:hover {
+  color: #F56345;
+}
+.editchallengeprogress form button:hover {
+  box-shadow: 12px 12px 15px -5px #F54545;
+  color: #F56345;
+}
+
+.giveuponchallenge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.giveuponchallenge form {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  gap: 0.7em;
+}
+.giveuponchallenge form button {
+  text-align: center;
+  align-self: flex-end;
+  width: 10em;
+  background: black;
+  padding: 0.5em;
+  text-align: center;
+  color: white;
+  border: 1px solid white;
+  border-radius: 15px;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46);
+  box-shadow: 8px 8px 15px -5px #F54545;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46), box-shadow 0.2s ease;
+}
+.giveuponchallenge form button:hover {
+  color: #F56345;
+}
+.giveuponchallenge form button:hover {
+  box-shadow: 12px 12px 15px -5px #F54545;
+  color: #F56345;
+}
+
+.login {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.login form {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  gap: 0.7em;
+}
+.login form button {
+  align-self: flex-end;
+  width: 10em;
+  background: black;
+  padding: 0.5em;
+  text-align: center;
+  color: white;
+  border: 1px solid white;
+  border-radius: 15px;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46);
+  box-shadow: 8px 8px 15px -5px #F54545;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46), box-shadow 0.2s ease;
+}
+.login form button:hover {
+  color: #F56345;
+}
+.login form button:hover {
+  box-shadow: 12px 12px 15px -5px #F54545;
+  color: #F56345;
+}
+.login form a {
+  align-self: flex-end;
+  margin-top: 1em;
+  text-decoration: none;
+  width: 10em;
+  background: black;
+  padding: 0.5em;
+  text-align: center;
+  color: white;
+  border: 1px solid white;
+  border-radius: 15px;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46);
+  box-shadow: 8px 8px 15px -5px #F54545;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46), box-shadow 0.2s ease;
+}
+.login form a:hover {
+  color: #F56345;
+}
+.login form a:hover {
+  box-shadow: 12px 12px 15px -5px #F54545;
+  color: #F56345;
+}
+
+.loginFormErrors ul {
+  padding: 0;
+}
+.loginFormErrors ul li {
+  list-style: none;
+}
+
+.logout {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.logout h2 {
+  text-align: center;
+  margin-bottom: 1em;
+}
+.logout form {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  gap: 0.1em;
+}
+.logout form button {
+  align-self: center;
+  width: 10em;
+  background: black;
+  padding: 0.5em;
+  text-align: center;
+  color: white;
+  border: 1px solid white;
+  border-radius: 15px;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46);
+  box-shadow: 8px 8px 15px -5px #F54545;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46), box-shadow 0.2s ease;
+}
+.logout form button:hover {
+  color: #F56345;
+}
+.logout form button:hover {
+  box-shadow: 12px 12px 15px -5px #F54545;
+  color: #F56345;
+}
+
+.register {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.register form {
+  display: flex;
+  flex-direction: column;
+  width: 30vw;
+  gap: 0.7em;
+}
+.register form button {
+  align-self: flex-end;
+  width: 10em;
+  background: black;
+  padding: 0.5em;
+  text-align: center;
+  color: white;
+  border: 1px solid white;
+  border-radius: 15px;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46);
+  box-shadow: 8px 8px 15px -5px #F54545;
+  transition: color 0.2s cubic-bezier(0.67, 0.13, 0.36, 1.46), box-shadow 0.2s ease;
+}
+.register form button:hover {
+  color: #F56345;
+}
+.register form button:hover {
+  box-shadow: 12px 12px 15px -5px #F54545;
+  color: #F56345;
+}
+
+.registerFormErrors ul {
+  padding: 0;
+}
+.registerFormErrors ul li {
+  list-style: none;
+}
+
+h1 {
+  color: white;
+  transition: color 0.2s ease;
+  transition: text-shadow ease 0.2s;
+}
+h1:hover {
+  text-shadow: 0px 0px 5px #F58344, 0px 1px 5px #F54545, 0px 2px 5px #F56345, 0px 3px 5px #F5A145, 0px 4px 5px #F5BA45;
+}
+
 html {
   font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-html {
   position: relative;
   min-height: 100%;
 }
-
-body {
-  margin-bottom: 60px;
+html body {
+  font-family: "Poppins", sans-serif;
+  background-color: black;
+  color: white;
+}
+html body main {
+  height: 75vh;
 }

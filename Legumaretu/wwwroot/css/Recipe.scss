@@ -1,0 +1,45 @@
+﻿@use "vars.scss";
+
+.recipe {
+    display: flex;
+    flex-direction: column;
+    margin: 0 vars.$pagemargins 1em vars.$pagemargins;
+
+    img {
+        align-self: center;
+        width: 50%;
+        border-radius: vars.$radius;
+        box-shadow: 13px 12px vars.$fuzz 0px vars.$color3;
+        transition: box-shadow vars.$timing ease;
+
+        &:hover {
+            box-shadow: 23px 22px vars.$fuzz 0px vars.$color3;
+        }
+    }
+
+    h2 {
+        font-size: 40px;
+        margin-top: 1.5em;
+    }
+
+    div {
+        display: flex;
+        gap: 1em;
+
+        > * {
+            border: 1px solid vars.$secbg;
+            border-radius: vars.$radius;
+            padding: 0.5em;
+        }
+
+        i {
+            color: gold;
+        }
+    }
+
+    pre {
+        font-family: 'Poppins', sans-serif;
+        font-size: 18px;
+        white-space: pre-wrap;
+    }
+}

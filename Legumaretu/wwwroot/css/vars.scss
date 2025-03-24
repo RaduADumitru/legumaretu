@@ -1,0 +1,53 @@
+﻿// Site theme
+$color1: #F58344;
+$color2: #F54545;
+$color3: #F56345;
+$color4: #F5A145;
+$color5: #F5BA45;
+
+// Background and text
+$mainbg: black;
+$secbg: white;
+$textcol: white;
+
+// Others
+$timing: 0.2s;
+$radius: 20px;
+$fuzz: 15px;
+$pagemargins: 15vw;
+
+// Mixins
+@mixin link {
+    a {
+        text-decoration: none;
+        color: $textcol;
+        transition: color $timing cubic-bezier(.67,.13,.36,1.46);
+
+        &:hover {
+            color: $color3;
+        }
+    }
+}
+
+@mixin formButton {
+    width: 10em;
+    background: black;
+    padding: 0.5em;
+    text-align: center;
+    color: $textcol;
+    border: 1px solid $secbg;
+    border-radius: $fuzz;
+    transition: color $timing cubic-bezier(.67,.13,.36,1.46);
+
+    &:hover {
+        color: $color3;
+    }
+
+    box-shadow: 8px 8px $fuzz -5px $color2;
+    transition: color $timing cubic-bezier(.67,.13,.36,1.46), box-shadow $timing ease;
+
+    &:hover {
+        box-shadow: 12px 12px $fuzz -5px $color2;
+        color: $color3;
+    }
+}

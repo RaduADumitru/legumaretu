@@ -1,0 +1,66 @@
+﻿[
+  {
+    "outputFile": "wwwroot/css/addRecipe.css",
+    "inputFile": "wwwroot/css/addRecipe.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/menu.css",
+    "inputFile": "wwwroot/css/menu.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/recipe.css",
+    "inputFile": "wwwroot/css/recipe.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/recipes.css",
+    "inputFile": "wwwroot/css/recipes.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/site.css",
+    "inputFile": "wwwroot/css/site.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/vars.css",
+    "inputFile": "wwwroot/css/vars.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/Login.css",
+    "inputFile": "wwwroot/css/Login.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/register.css",
+    "inputFile": "wwwroot/css/register.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/editRecipe.css",
+    "inputFile": "wwwroot/css/editRecipe.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/logout.css",
+    "inputFile": "wwwroot/css/logout.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/challenges.css",
+    "inputFile": "wwwroot/css/challenges.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/addchallenge.css",
+    "inputFile": "wwwroot/css/addchallenge.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/signUpForChallenge.css",
+    "inputFile": "wwwroot/css/signUpForChallenge.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/yourChallenges.css",
+    "inputFile": "wwwroot/css/yourChallenges.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/editChallengeProgress.css",
+    "inputFile": "wwwroot/css/editChallengeProgress.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/giveUpOnChallenge.css",
+    "inputFile": "wwwroot/css/giveUpOnChallenge.scss"
+  }
+]

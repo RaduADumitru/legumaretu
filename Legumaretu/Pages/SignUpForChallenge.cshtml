@@ -1,0 +1,24 @@
+﻿@page
+@model Legumaretu.Pages.SignUpForChallengeModel
+
+@{
+    ViewData["Title"] = "SignUpForChallenge";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<section class="signupforchallenge">
+    <h2>Înscrie-te la o provocare</h2>
+    <p>Alege o provocare pentru a putea participa la ea și a câștiga punctele de pe urma ei!</p>
+    <form method="post">
+	    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <label>Provocare</label>
+		<select asp-for="ChallengeProgress.ChallengeId" asp-items="@Model.Challenges"></select><br/>
+
+        <button type="submit">Înscrie-te</button>
+    </form>
+</section>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,31 @@
+﻿@page
+@model Legumaretu.Pages.CreateChallengeModel
+
+@{
+    ViewData["Title"] = "AddChallenge";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<section class="addchallenge">
+    <form method="post">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <label asp-for="Challenge.Name">Nume</label>
+        <input asp-for="Challenge.Name"/>
+        <span asp-validation-for="Challenge.Name" class="text-danger"></span>
+
+		<label asp-for="Challenge.Description">Descriere</label>
+		<input asp-for="Challenge.Description"/>
+		<span asp-validation-for="Challenge.Description" class="text-danger"></span>
+
+		<label>Rețete</label>
+		<select multiple asp-for="@Model.SelectedRecipeIds" asp-items="@Model.Recipes"></select><br />
+		<span asp-validation-for="SelectedRecipeIds" class="text-danger"></span>
+
+        <button>Adaugă</button>
+    </form>
+</section>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

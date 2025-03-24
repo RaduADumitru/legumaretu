@@ -1,0 +1,40 @@
+﻿@page "{id}"
+@model Legumaretu.Pages.EditRecipeModel
+
+@{
+	ViewData["Title"] = "Modifică rețeta";
+	Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<section class="editRecipe">
+	<h2>Modifică o rețetă</h2>
+	<form method="post" enctype="multipart/form-data">
+		<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+		<input type="hidden" asp-for="Recipe.Id" />
+
+		<label asp-for="Recipe.Name">Nume</label>
+		<input asp-for="Recipe.Name" />
+		<span asp-validation-for="Recipe.Name" class="text-danger"></span>
+
+		<label asp-for="Recipe.Description">Descriere</label>
+		<textarea asp-for="Recipe.Description"></textarea>
+		<span asp-validation-for="Recipe.Description" class="text-danger"></span>
+
+		<label asp-for="Recipe.Stars">Nivel de dificultate (1-5)</label>
+		<input type="number" min="1" max="5" value="1" asp-for="Recipe.Stars" />
+		<span asp-validation-for="Recipe.Stars" class="text-danger"></span>
+
+		<label asp-for="Image">Imagine</label>
+		<input type="file" accept="image/*" asp-for="@Model.Image" />
+		<span asp-validation-for="@Model.Image" class="text-danger"></span>
+
+		<input type="submit" value="Save" />
+	</form>
+</section>
+
+@section Scripts {
+	@{
+		await Html.RenderPartialAsync("_ValidationScriptsPartial");
+	}
+}

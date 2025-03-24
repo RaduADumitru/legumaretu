@@ -1,0 +1,21 @@
+﻿@page
+@model LogoutModel
+@{
+    ViewData["Title"] = "Delogare";
+}
+
+<section class="logout">
+    <h2>@ViewData["Title"]</h2>
+    @{
+        if (User.Identity?.IsAuthenticated ?? false)
+        {
+            <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                <button type="submit">Apasă aici pentru a te deloga</button>
+            </form>
+        }
+        else
+        {
+            <p>Te-ai delogat cu succes!</p>
+        }
+    }
+</section>

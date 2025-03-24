@@ -1,0 +1,17 @@
+﻿@page "{id}"
+@model Legumaretu.Pages.GiveUpOnChallengeModel
+
+@{
+    ViewData["Title"] = "Renunță";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<section class="giveuponchallenge">
+    <h2>Renunță</h2>
+    <p>Ești sigur că vrei să renunți la provocarea @Html.DisplayFor(model => model.ChallengeProgress.Challenge.Name) ?</p>
+  
+    <form method="post">
+        <input type="hidden" asp-for="ChallengeProgress.Id" />
+        <button type="submit">Renunță</button>
+    </form>
+</section>
